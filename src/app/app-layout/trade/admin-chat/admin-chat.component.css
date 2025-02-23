@@ -1,0 +1,117 @@
+.messenger-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.user-list {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.user-list .list-group-item {
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.user-list .list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
+.message-box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message-box .card-header {
+  background-color: #143548;
+  color: #ffffff;
+  border-radius: 8px 8px 0 0;
+}
+
+.message-content {
+  height: 400px;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.message {
+  margin-bottom: 15px;
+}
+
+.message .avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #143548;
+  border-radius: 50%;
+}
+
+.message .text_wrapper {
+  max-width: 70%;
+}
+
+.message .text {
+  word-wrap: break-word;
+}
+
+.text-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.text-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message.text-left .text {
+  background-color: #e9ecef; /* Màu nền cho người nhận */
+  color: black;
+}
+
+.message.text-right .text {
+  background-color: #e9ecef; /* Màu nền cho người gửi */
+  color: black;
+}
+
+/* Nếu bạn muốn thêm độ rộng cho phần tin nhắn */
+.text_wrapper {
+  max-width: 70%; /* Giới hạn chiều rộng của phần tin nhắn */
+}
+.file-attachment {
+  text-decoration: none;
+  color: #007bff;
+  padding: 5px;
+  border: 1px solid #143548;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.file-attachment:hover {
+  background-color: #143548;
+  color: #ffffff;
+}
+
+.bottom_wrapper {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 0 0 8px 8px;
+}
+
+.message_input {
+  border-radius: 20px;
+}
+
+.send_message {
+  border-radius: 20px;
+}
+
+.chat-image {
+  max-width: 200px;
+  cursor: pointer;
+}

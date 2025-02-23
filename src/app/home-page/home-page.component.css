@@ -1,0 +1,56 @@
+.carousel-container p {
+    font-size: 1.25em; /* Thay đổi kích thước font chữ ở đây */
+    line-height: 1.6; /* Tùy chọn để tăng khoảng cách giữa các dòng */
+}
+
+.carousel-container h2 {
+    font-size: 2em; /* Kích thước chữ cho tiêu đề (nếu cần) */
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background: #007bff;
+    border: none;
+}
+
+.btn-success {
+    background: #28a745;
+    border: none;
+}
+
+.card {
+    border-radius: 15px; /* Bo góc cho card */
+    overflow: hidden; /* Ẩn các phần thừa của hình ảnh */
+}
+
+.card-body {
+    text-align: center; /* Căn giữa nội dung trong card */
+}
+
+.swiper {
+    margin-top: 20px; /* Khoảng cách giữa tiêu đề và slider */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #007bff; /* Màu sắc cho nút điều hướng */
+}
+
+.swiper-pagination-bullet {
+    background: #007bff; /* Màu sắc cho dấu chấm phân trang */
+}
+
+.swiper-pagination-bullet-active {
+    background: #0056b3; /* Màu sắc cho dấu chấm đang hoạt động */
+}

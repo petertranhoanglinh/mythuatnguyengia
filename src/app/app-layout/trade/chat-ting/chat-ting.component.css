@@ -1,0 +1,126 @@
+/* Chat Window Styles */
+.chat_window {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.messages {
+  overflow-y: auto; /* Cho phép cuộn dọc */
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  border: 1px solid #ccc; /* Biên (nếu cần) */
+  max-height: 600px; /* Giảm chiều cao tối đa để ngăn chặn quá trình tải tin nhắn quá nhiều */
+  overflow-x: hidden; /* Ẩn cuộn ngang */
+  padding-bottom: 10px; /* Thêm padding dưới để ngăn chặn hiện tượng cuộn */
+  margin-top: 20px;
+}
+
+
+
+/* Tùy chọn: Thêm style cho thanh scroll */
+.messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.top_menu {
+  background: #143548;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.buttons {
+  margin-right: auto;
+}
+
+.button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 5px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.messages {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  margin: 10px;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.text_wrapper {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  background: #f1f1f1;
+}
+
+.text_wrapper .name {
+  font-weight: bold; /* Giữ chữ đậm */
+  font-size: 0.6rem; /* Kích thước chữ nhỏ hơn */
+  color: #333; /* Màu chữ tốt hơn */
+  margin-bottom: 2px; /* Thêm khoảng cách dưới */
+}
+.bottom_wrapper {
+  padding: 10px; /* Thêm khoảng cách xung quanh để đảm bảo mọi thứ không chèn lên nhau */
+}
+
+.message_input_wrapper {
+  width: 100%; /* Bảo đảm chiếm 100% chiều rộng của cột */
+}
+
+.message_input {
+  width: 100%; /* Bảo đảm ô nhập chiếm toàn bộ chiều rộng */
+  padding: 10px; /* Thêm khoảng cách bên trong */
+}
+
+.send_message {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px; /* Thêm khoảng cách để dễ nhấn */
+}
+
+@media (max-width: 576px) { /* Đối với các màn hình nhỏ */
+  .bottom_wrapper {
+      margin-bottom: 20px; /* Thêm khoảng cách dưới cùng */
+  }
+}

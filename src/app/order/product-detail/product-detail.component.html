@@ -1,0 +1,43 @@
+<div class="container mt-5 mb-5">
+    <h6 class="mb-4 text-center">{{ title }}</h6>
+    <div class="row">
+        <div class="col-md-6">
+            <img [src]="serviceImage" alt="Vẽ Tranh Cảnh Biển" class="img-fluid rounded shadow">
+        </div>
+  
+        <!-- Mô tả dịch vụ -->
+        <div class="col-md-6">
+            <h3>Mô Tả</h3>
+            <p class="lead" [innerHTML]="descriptionTest"></p>
+            <h3>Giá Dịch Vụ</h3>
+            <p>Giá dịch vụ vẽ tranh tường sẽ thay đổi tùy theo kích thước và độ phức tạp của tác phẩm. Vui lòng liên hệ với chúng tôi để nhận báo giá cụ thể.</p>
+            <a href="#contact" class="btn btn-primary">Liên Hệ Ngay</a>
+        </div>
+    </div>
+  
+    <hr class="my-5">
+  
+    <!-- Phần Hình Ảnh Ví Dụ Dự Án -->
+    <h3 class="mb-4 text-center">Một Số Dự Án Đã Thực Hiện</h3>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let project of projects">
+            <div class="position-relative mb-4">
+                <img [src]="project" alt="Dự Án" class="img-fluid rounded shadow" style="object-fit: cover; height: 300px;"> <!-- Hình ảnh hiển thị đầy đủ -->
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+  
+    <!-- Phần thông tin liên hệ -->
+    <div id="contact" class="mt-5">
+        <h3>Liên Hệ Để Biết Thêm Chi Tiết</h3>
+        <p>Nếu bạn có bất kỳ câu hỏi nào về dịch vụ hoặc muốn đặt lịch, hãy liên hệ với chúng tôi qua thông tin dưới đây:</p>
+        <ul class="list-unstyled">
+            <li><i class="bi bi-telephone"></i> Điện thoại: <strong>{{ contactInfo.phone }}</strong></li>
+            <li><i class="bi bi-envelope"></i> Email: <strong>{{ contactInfo.email }}</strong></li>
+            <li><i class="bi bi-geo-alt"></i> Địa chỉ: <strong>{{ contactInfo.address }}</strong></li>
+        </ul>
+        <a [href]="'mailto:' + contactInfo.email" class="btn btn-success">Gửi Email</a>
+    </div>
+</div>

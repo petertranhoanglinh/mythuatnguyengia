@@ -1,0 +1,31 @@
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <a routerLink="/" class="logo d-flex align-items-center me-auto">
+      <h1 class="sitename">MỸ THUẬT NGUYỄN GIA</h1>
+    </a>
+    <nav id="navmenu" class="navmenu">
+      <ul >
+        <ng-container *ngFor="let lv0 of menus">
+          <li *ngIf="lv0.items == null" (click)="onMenuClick(lv0)"><a routerLink="{{lv0.route}}">{{lv0.label}}</a></li>
+          <li *ngIf="lv0.items != null" class="dropdown">
+           <a><span>{{lv0.label}}</span>  <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul >
+              <ng-container *ngFor="let lv1 of lv0.items">
+                <li *ngIf="lv1.items == null"><a routerLink="{{lv1.route}}" (click)="onMenuClick(lv1)">{{lv1.label}}</a></li>
+                  <li *ngIf="lv1.items != null" class="dropdown">
+                     <a> <span>{{lv1.label}} </span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                      <ul >
+                        <ng-container *ngFor="let lv2 of lv1.items">
+                          <li><a routerLink="{{lv2.route}}" (click)="onMenuClick(lv2)">{{lv2.label}}</a></li>
+                        </ng-container>
+                      </ul>
+                  </li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+  </div>
+</header>

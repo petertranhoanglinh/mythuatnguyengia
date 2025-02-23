@@ -1,0 +1,42 @@
+.message-buttons-container {
+  position: fixed; /* Fixed positioning for the whole container */
+  right: 20px; /* 20px from the right edge */
+  bottom: 20px; /* Start from the bottom */
+  z-index: 1000; /* Make sure the buttons are on top of other elements */
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 20px; /* Add space between buttons */
+  align-items: center; /* Center align the buttons */
+}
+
+.message-button {
+  background-color: #143548; /* Dark background */
+  color: white; /* Text color */
+  border: none; /* No borders */
+  border-radius: 50%; /* Circular buttons */
+  width: 60px; /* Button width */
+  height: 60px; /* Button height */
+  font-size: 24px; /* Icon font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.message-button:hover {
+  background-color: #d9232d; /* Red background on hover */
+  transform: scale(1.1); /* Button slightly grows when hovered */
+}
+
+.zalo-button img {
+  width: 30px; /* Smaller size for Zalo logo */
+  height: 30px;
+  object-fit: contain; /* Preserve aspect ratio */
+}
+
+/* Optional: Adjust icon size for better consistency */
+.fas, .fab {
+  font-size: 26px; /* Slightly larger icons */
+}
