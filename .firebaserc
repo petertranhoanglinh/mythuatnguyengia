@@ -1,8 +1,8 @@
 {
   "projects": {
-    "default": "auth-webixx",
-    "staging": "auth-webixx",
-    "webixx": "auth-webixx"
+    "default": "mythuatnguyengia",
+    "staging": "mythuatnguyengia",
+    "webixx": "mythuatnguyengia"
   },
   "targets": {},
   "etags": {}

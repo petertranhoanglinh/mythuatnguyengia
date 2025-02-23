@@ -13,6 +13,8 @@ import { getProducts, ProductState } from 'src/app/selectors/product.selector';
 import { CartService } from 'src/app/service/cart-service.service';
 import { ProductService } from 'src/app/service/product.service';
 import { environment } from 'src/environments/environment';
+import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
+import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
 
 @Component({
   selector: 'app-product-detail',
@@ -44,8 +46,8 @@ export class ProductDetailComponent implements OnInit {
   };
 
   product : ProductModel = {} as ProductModel;
-  constructor(private route: ActivatedRoute , private productStore: Store<ProductState>,
-    private cartService : CartService,
+  constructor(private route: ActivatedRoute , private productStore: Store<ProductState>,  private overlayLoadingStore: Store<OverlayLoadingState>
+    ,private cartService : CartService,
     private toastr: ToastrService,
     private sanitizer: DomSanitizer
   ) {
@@ -60,6 +62,7 @@ export class ProductDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
     this.route.paramMap.subscribe(params => {
       this.productId = String(params.get('product'));
       this.productStore.dispatch(productAction({params:{
@@ -72,6 +75,10 @@ export class ProductDetailComponent implements OnInit {
         this.product = res.products[0];
       }
     })
+
+    setTimeout(() => {
+      this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
+    }, 1000);
   }
 
   closePopup():void{

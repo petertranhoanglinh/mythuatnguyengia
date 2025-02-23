@@ -1,56 +1,40 @@
-.carousel-container p {
-    font-size: 1.25em; /* Thay đổi kích thước font chữ ở đây */
-    line-height: 1.6; /* Tùy chọn để tăng khoảng cách giữa các dòng */
-}
+.hero .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
 
-.carousel-container h2 {
-    font-size: 2em; /* Kích thước chữ cho tiêu đề (nếu cần) */
-}
+  .btn {
+    border-radius: 20px; /* Rounded buttons */
+  }
+  
+  .card {
+    border: none; /* Remove card border */
+    transition: transform 0.2s; /* Animation on hover */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Scale effect */
+  }
 
-.btn {
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .display-4 {
+      font-size: 1.5rem; /* Adjust heading size */
+    }
+    
+    .lead {
+      font-size: 1rem; /* Adjust paragraph size */
+    }
+  }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.btn-primary {
-    background: #007bff;
-    border: none;
-}
-
-.btn-success {
-    background: #28a745;
-    border: none;
-}
-
-.card {
-    border-radius: 15px; /* Bo góc cho card */
-    overflow: hidden; /* Ẩn các phần thừa của hình ảnh */
-}
-
-.card-body {
-    text-align: center; /* Căn giữa nội dung trong card */
-}
-
-.swiper {
-    margin-top: 20px; /* Khoảng cách giữa tiêu đề và slider */
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-    color: #007bff; /* Màu sắc cho nút điều hướng */
-}
-
-.swiper-pagination-bullet {
-    background: #007bff; /* Màu sắc cho dấu chấm phân trang */
-}
-
-.swiper-pagination-bullet-active {
-    background: #0056b3; /* Màu sắc cho dấu chấm đang hoạt động */
-}
+  @media (max-width: 576px) {
+    .btn {
+      width: 100%; /* Full-width buttons on small screens */
+    }
+  }

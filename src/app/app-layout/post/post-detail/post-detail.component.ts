@@ -4,9 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loadBlogById, loadBlogByIdSuccess } from 'src/app/actions/blog.actions';
+import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
 import { ValidationUtil } from 'src/app/common/util/validation.util';
 import { BlogModel } from 'src/app/model/blog.model';
 import { BlogState, selectSelectedBlog } from 'src/app/selectors/blog.selectors';
+import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
 
 @Component({
   selector: 'app-post-detail',
@@ -18,10 +20,13 @@ export class PostDetailComponent implements OnInit {
 
   blog: BlogModel = {} as BlogModel;
   blog$ = new Observable<BlogModel>();
-  constructor(private sanitizer: DomSanitizer , private route: ActivatedRoute , private blogStore : Store<BlogState>) {
+  constructor(private sanitizer: DomSanitizer , private route: ActivatedRoute 
+    , private blogStore : Store<BlogState>
+   , private overlayLoadingStore: Store<OverlayLoadingState>) {
     this.blog$ = this.blogStore.select(selectSelectedBlog)
    }
   ngOnInit(): void {
+     this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
     const id  = this.route.snapshot.paramMap.get('id');
     this.blogStore.dispatch(loadBlogById({id:String(id)}))
     this.blog$.subscribe(res =>{
@@ -29,6 +34,9 @@ export class PostDetailComponent implements OnInit {
         this.blog = res;
         this.addLazyLoadingToImages();
         window.scrollTo(0, 0);
+        setTimeout(() => {
+          this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
+        }, 300);
       }
     })
   }

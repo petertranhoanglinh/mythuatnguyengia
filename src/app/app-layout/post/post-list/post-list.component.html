@@ -2,8 +2,11 @@
   <div class="row g-4">
     <div class="col-12 mb-5">
       <ul class="list-unstyled">
-        <li *ngFor="let blog of blogs" class="mb-4 wow fadeInUp" data-wow-delay="0.1s" >
-          <div class="training-item d-flex align-items-start border p-3 rounded bg-light" style=" background-color: #f9f9f9 !important;">
+        <li *ngFor="let blog of blogs" class="mb-4 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="training-item d-flex align-items-start border p-3 rounded bg-light" style="background-color: #f9f9f9 !important;">
+            <div class="me">
+              <img [src]="'https://vetranhtuongdart.com/wp-content/uploads/2023/07/ve-tranh-tuong-quan-an-2.jpg'" alt="{{ blog.title }}" class="img-fluid" style="width: 200px; height: auto; border-radius: 5px;">
+            </div>
             <div class="ms-3">
               <div class="training-title-name">
                 <a [routerLink]="['/blog/blog-detail', blog.id]" class="h5 text-dark text-decoration-none">{{ blog.title }}</a>
@@ -14,6 +17,6 @@
       </ul>
     </div>
 
-    <app-paging  class="mb-2" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
+    <app-paging class="mb-2" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
   </div>
 </div>
