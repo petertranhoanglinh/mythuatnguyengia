@@ -1,28 +1,19 @@
 
-  <div class="container mt-3">
+  <div class="container mt-5">
     <article class="entry single-entry entry-fullwidth">
       <div class="row">
-        <div class="col-lg-11 mb-5">
-            <h2 class="text-right" style="color:hsl(0, 0%, 0%)!important;">
+        <div class="col text-left">
+            <h3 class="text-right" style="color:hsl(0, 0%, 0%)!important;">
               <strong>{{ blog.title }}</strong>
-            </h2>
+            </h3>
         </div>
-
-        <div class="col-lg-11">
+      </div>
+      <div class="row mt-3">
+        <div class="col">
           <div class="overflow-hidden">
             <div [innerHTML]="sanitizedContent"></div>
           </div>
         </div>
-
-        <div class="col-lg-11 mt-4">
-          <span class="entry-author">
-            Tác giả: <a href="#">{{ blog.author }}</a>
-          </span>
-          <span class="meta-separator">|</span>
-          <a href="#">Ngày đăng: {{ blog.createdAt | date: 'shortDate' }}</a>
-          <span class="meta-separator">|</span>
-        </div>
-
       </div>
     </article>
 
