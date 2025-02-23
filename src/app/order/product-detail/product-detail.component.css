@@ -1,29 +1,7 @@
-.container {
-  max-width: 1200px; /* Giới hạn chiều rộng */
+.hover-zoom {
+  transition: transform 0.3s ease;
 }
 
-h3 {
-  font-family: 'Arial', sans-serif; /* Thay đổi font chữ */
-  font-weight: bold; /* Đậm hơn */
-}
-
-p {
-  font-size: 16px; /* Kích thước chữ */
-}
-
-.btn {
-  margin-top: 10px; /* Khoảng cách cho nút */
-}
-
-.rounded {
-  border-radius: 10px; /* Bo góc cho hình ảnh */
-}
-
-.shadow {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng cho hình ảnh */
-}
-
-/* Điều chỉnh cho các hình ảnh dự án */
-.row > div {
-  padding: 0 15px; /* Khoảng cách giữa các cột */
+.hover-zoom:hover {
+  transform: scale(1.05);
 }

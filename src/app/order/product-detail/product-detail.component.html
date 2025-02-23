@@ -1,43 +1,70 @@
 <div class="container mt-5 mb-5">
-    <h6 class="mb-4 text-center">{{ title }}</h6>
-    <div class="row">
+    <!-- Tiêu đề -->
+    <h3 class="mb-4 font-weight-bold">{{ title }}</h3>
+
+    <!-- Phần giới thiệu dịch vụ -->
+    <div class="row align-items-center">
+        <!-- Hình ảnh dịch vụ -->
         <div class="col-md-6">
-            <img [src]="serviceImage" alt="Vẽ Tranh Cảnh Biển" class="img-fluid rounded shadow">
+            <img [src]="serviceImage" alt="Vẽ Tranh Cảnh Biển" class="img-fluid rounded shadow-lg hover-zoom">
         </div>
-  
-        <!-- Mô tả dịch vụ -->
+
+        <!-- Giá dịch vụ và nút liên hệ -->
         <div class="col-md-6">
-            <h3>Mô Tả</h3>
-            <p class="lead" [innerHTML]="descriptionTest"></p>
-            <h3>Giá Dịch Vụ</h3>
-            <p>Giá dịch vụ vẽ tranh tường sẽ thay đổi tùy theo kích thước và độ phức tạp của tác phẩm. Vui lòng liên hệ với chúng tôi để nhận báo giá cụ thể.</p>
-            <a href="#contact" class="btn btn-primary">Liên Hệ Ngay</a>
+            <h4 class="font-weight-bold">Giá dịch vụ</h4>
+            <p class="text-muted">Giá dịch vụ vẽ tranh tường sẽ thay đổi tùy theo kích thước và độ phức tạp của tác
+                phẩm. Vui lòng liên hệ với chúng tôi để nhận báo giá cụ thể.</p>
+            <h4 class="font-weight-bold">Liên Hệ Để Biết Thêm Chi Tiết</h4>
+            <p class="text-muted">Nếu bạn có bất kỳ câu hỏi nào về dịch vụ hoặc muốn đặt lịch, hãy liên hệ với chúng tôi
+                qua thông tin dưới đây:</p>
+            <ul class="list-unstyled">
+                <li class="mb-3"><i class="bi bi-telephone text-primary"></i> Điện thoại: <strong class="text-dark">0949
+                        315 809</strong></li>
+                <li class="mb-3"><i class="bi bi-envelope text-primary"></i> Email: <strong
+                        class="text-dark">contact@tranhve.com</strong></li>
+                <li class="mb-3"><i class="bi bi-geo-alt text-primary"></i> Địa chỉ: <strong class="text-dark">123 Đường
+                        Nghệ Thuật, Hà Nội, Việt Nam</strong></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-lg">Liên Hệ Ngay</a>
         </div>
     </div>
-  
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="font-weight-bold">Mô Tả Dịch Vụ</h4>
+            <p class="lead" [innerHTML]="descriptionTest"></p>
+        </div>
+    </div>
+
+
     <hr class="my-5">
-  
+
     <!-- Phần Hình Ảnh Ví Dụ Dự Án -->
-    <h3 class="mb-4 text-center">Một Số Dự Án Đã Thực Hiện</h3>
+    <h4 class="mb-4 font-weight-bold">Một số hình ảnh của dự án</h4>
     <div class="row">
-        <div class="col-md-4" *ngFor="let project of projects">
-            <div class="position-relative mb-4">
-                <img [src]="project" alt="Dự Án" class="img-fluid rounded shadow" style="object-fit: cover; height: 300px;"> <!-- Hình ảnh hiển thị đầy đủ -->
+        <div class="col-md-4 mb-4" *ngFor="let project of projects">
+            <div class="position-relative">
+                <img [src]="project" alt="Dự Án" class="img-fluid rounded shadow-lg hover-zoom"
+                    style="object-fit: cover; height: 300px;">
             </div>
         </div>
     </div>
 
     <hr class="my-5">
-  
+
     <!-- Phần thông tin liên hệ -->
     <div id="contact" class="mt-5">
-        <h3>Liên Hệ Để Biết Thêm Chi Tiết</h3>
-        <p>Nếu bạn có bất kỳ câu hỏi nào về dịch vụ hoặc muốn đặt lịch, hãy liên hệ với chúng tôi qua thông tin dưới đây:</p>
+        <h4 class="mb-4 font-weight-bold">Liên Hệ Để Biết Thêm Chi Tiết</h4>
+        <p class="text-muted">Nếu bạn có bất kỳ câu hỏi nào về dịch vụ hoặc muốn đặt lịch, hãy liên hệ với chúng tôi qua
+            thông tin dưới đây:</p>
         <ul class="list-unstyled">
-            <li><i class="bi bi-telephone"></i> Điện thoại: <strong>{{ contactInfo.phone }}</strong></li>
-            <li><i class="bi bi-envelope"></i> Email: <strong>{{ contactInfo.email }}</strong></li>
-            <li><i class="bi bi-geo-alt"></i> Địa chỉ: <strong>{{ contactInfo.address }}</strong></li>
+            <li class="mb-3"><i class="bi bi-telephone text-primary"></i> Điện thoại: <strong class="text-dark">{{
+                    contactInfo.phone }}</strong></li>
+            <li class="mb-3"><i class="bi bi-envelope text-primary"></i> Email: <strong class="text-dark">{{
+                    contactInfo.email }}</strong></li>
+            <li class="mb-3"><i class="bi bi-geo-alt text-primary"></i> Địa chỉ: <strong class="text-dark">{{
+                    contactInfo.address }}</strong></li>
         </ul>
-        <a [href]="'mailto:' + contactInfo.email" class="btn btn-success">Gửi Email</a>
+        <a [href]="'mailto:' + contactInfo.email" class="btn btn-success btn-lg">Gửi Email</a>
     </div>
 </div>
