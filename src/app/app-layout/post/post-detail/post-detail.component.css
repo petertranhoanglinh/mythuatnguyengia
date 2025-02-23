@@ -52,3 +52,8 @@
     width: 100%;
   }
 }
+
+
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-focused {
+  border: none !important; /* Loại bỏ border */
+}
