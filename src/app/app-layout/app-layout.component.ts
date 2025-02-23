@@ -12,26 +12,26 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class AppLayoutComponent implements OnInit {
 
-  show$: Observable<boolean>; // Changed to Observable<boolean>
+  //show$: Observable<boolean>; // Changed to Observable<boolean>
   show: boolean = false;
   private showSubscription: Subscription | undefined;  // To manage the subscription
 
   constructor(private http: HttpService, private overlayLoadingStore: Store<OverlayLoadingState>) {
-    this.show$ = this.overlayLoadingStore.select(getLoading);
+    //this.show$ = this.overlayLoadingStore.select(getLoading);
   }
 
   ngOnInit(): void {
-    this.showSubscription = this.show$.subscribe(res => {
-      this.show = res;
-      const preloader = document.querySelector('#preloader');
-      if (preloader) {
-          if (res) {
-              preloader.classList.remove('hidden-preloader'); // or preloader.style.display = 'block'
-          } else {
-              preloader.classList.add('hidden-preloader');  // or preloader.style.display = 'none'
-          }
-      }
-    });
+    // this.showSubscription = this.show$.subscribe(res => {
+    //   this.show = res;
+    //   const preloader = document.querySelector('#preloader');
+    //   if (preloader) {
+    //       if (res) {
+    //           preloader.classList.remove('hidden-preloader'); // or preloader.style.display = 'block'
+    //       } else {
+    //           preloader.classList.add('hidden-preloader');  // or preloader.style.display = 'none'
+    //       }
+    //   }
+    // });
   }
 
 

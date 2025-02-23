@@ -14,9 +14,7 @@ export class Interceptors implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-
         if (error.status === 403) {
-          // Nếu lỗi là 403, chuyển hướng tới trang đăng nhập
           if(Number(AuthDetail.getLoginedInfo()?.logoutDate) <= Number(DateUtils.getCurrFullDateTimeStrBlank(new Date()))){
             this.router.navigate(['/login']);
           }

@@ -52,7 +52,6 @@ export class LoginPageComponent implements OnInit {
     private toastr: ToastrService) {
     this.userAuth$ = this._auth_state.select(getUser);
     this.err$ = this._auth_state.select(getErr);
-    //AuthDetail.actionLogOut();
   }
 
 
@@ -61,10 +60,10 @@ export class LoginPageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
     this.initGoogle()
-    //AuthDetail.actionLogOut();
+    AuthDetail.actionLogOut();
     localStorage.removeItem(Common.GOOGLE_USER);
-
     this.clearAuth$ = this.userAuth$.subscribe(
       (res) => {
         if (ValidationUtil.isNotNullAndNotEmpty(res)) {
@@ -113,10 +112,8 @@ export class LoginPageComponent implements OnInit {
 
   loginProcess(res: MemberModel) {
 
-    const currentDate = new Date(); // Lấy thời gian hiện tại
-    currentDate.setMinutes(currentDate.getMinutes() + 30); // Cộng thêm 30 phút
-
-    // Sử dụng hàm định dạng đã tạo để chuyển thành chuỗi mong muốn
+    const currentDate = new Date(); 
+    currentDate.setMinutes(currentDate.getMinutes() + 30); 
     const logOutDate = DateUtils.getCurrFullDateTimeStrBlank(currentDate);
 
     res.logoutDate = logOutDate;

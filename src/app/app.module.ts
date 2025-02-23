@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { ComponentsModule } from './components/components.module';
 import { Interceptors } from './service/interceptors.service';
+import { overlayLoadingFeatureKey, overlayLoadingReducer } from './reducers/overlay-loading.reducer';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { Interceptors } from './service/interceptors.service';
     HttpClientModule,
     ComponentsModule,
     StoreModule.forRoot({}),
+     StoreModule.forFeature(overlayLoadingFeatureKey, overlayLoadingReducer),
     EffectsModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right', // Thay đổi vị trí ở đây

@@ -77,43 +77,14 @@ export class HeaderComponent implements OnInit {
       initHeader()
     }, 500);
     let role  = String(AuthDetail.getLoginedInfo()?.role);
-    if(this.isLogin){
-      this.menus.push(
-      {
-        label:'Wishlist',
-        route:'/shopping/wishlist',
-        kind:'mt',
-        icon:'icon-heart-o'
-      },
-      {
-        label:'View Cart',
-        route:'/shopping/cart',
-        kind:'mt'
-      },
-      {
-        label:'Checkout',
-        route:'/shopping/checkout'  ,
-        kind:'mt'
-      },
-      {
-        label:'Account',
-        route:'/auth/my-account',
-        kind:'mt',
-        icon:'icon-user'
-      },
-    )
-    }
     if(role == 'admin'){
       this.menus.push({
         label: 'Administrator',
         items: [
-          {label : "Quản Lý Dịch Vụ" , route: '/shopping/newProduct' , isShowPageHeading:true },
-          {label : "Đăng Ký Danh Mục Dịch Vụ " , route: '/product/regcate'  , isShowPageHeading:true},
-          {label: 'Theo Dõi Đơn Hàng Dịch Vụ', route: '/shopping/order-tracking'  , isShowPageHeading:true},
-          {label: 'Chi Tiết Dịch Vụ', route: '/shopping/order-detail'  , isShowPageHeading:true},
+          {label : "Quản Lý Dịch Vụ Vẽ Tranh" , route: '/shopping/newProduct' , isShowPageHeading:true },
+          {label : "Đăng Ký Danh Mục Vẽ Tranh" , route: '/product/regcate'  , isShowPageHeading:true},
           {label: 'Thêm Mới Bài Viết', route: '/blog/blog-edit'  , isShowPageHeading:true},
           {label: 'Quản Lý Bài Viết', route: '/blog/blog-admin'  , isShowPageHeading:true},
-          {label: 'Quản Lý Tin Nhắn', route: '/chat-admin'  , isShowPageHeading:true},
         ]
       })
     }
