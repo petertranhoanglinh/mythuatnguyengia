@@ -3,6 +3,7 @@ import { productFeatureKey } from '../reducers/product.reducer';
 import { ProductModel } from '../model/product.model';
 import { ProductResponseModel, ProductRewiewResponseModel } from '../model/product-response.model';
 import { ResultModel } from '../model/result.model';
+import { CategoryModel } from '../model/cate.model';
 
 
 
@@ -11,6 +12,7 @@ export interface ProductState {
   resultSaveRewiew:ResultModel;
   rewiews:ProductRewiewResponseModel;
   resultSaveProduct : ResultModel;
+  cate:CategoryModel [];
 }
 
 export const getProductState = createFeatureSelector<ProductState>(productFeatureKey);
@@ -35,6 +37,13 @@ export const getResultSaveProduct = createSelector(
   getProductState,
  (state: ProductState) => state.resultSaveProduct
 );
+
+
+export const getCategory = createSelector(
+  getProductState,
+ (state: ProductState) => state.cate
+);
+
 
 
 

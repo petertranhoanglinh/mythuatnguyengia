@@ -1,18 +1,12 @@
 <div class="container mt-5 mb-5">
-    <!-- Tiêu đề -->
-    <h3 class="mb-4 font-weight-bold">{{ title }}</h3>
-
-    <!-- Phần giới thiệu dịch vụ -->
+    <h3 class="mb-4 font-weight-bold">{{ product.name }}</h3>
     <div class="row align-items-center">
-        <!-- Hình ảnh dịch vụ -->
         <div class="col-md-6">
-            <img [src]="serviceImage" alt="Vẽ Tranh Cảnh Biển" class="img-fluid rounded shadow-lg hover-zoom">
+            <img [src]="apiUrl + '/' + product.sliders[0]" alt="Vẽ Tranh Cảnh Biển" class="img-fluid rounded shadow-lg hover-zoom">
         </div>
-
-        <!-- Giá dịch vụ và nút liên hệ -->
         <div class="col-md-6">
             <h4 class="font-weight-bold">Giá dịch vụ</h4>
-            <p class="text-muted">Giá dịch vụ vẽ tranh tường sẽ thay đổi tùy theo kích thước và độ phức tạp của tác
+            <p class="text-muted">Giá dịch vụ vẽ {{product.name}} sẽ thay đổi tùy theo kích thước và độ phức tạp của tác
                 phẩm. Vui lòng liên hệ với chúng tôi để nhận báo giá cụ thể.</p>
             <h4 class="font-weight-bold">Liên Hệ Để Biết Thêm Chi Tiết</h4>
             <p class="text-muted">Nếu bạn có bất kỳ câu hỏi nào về dịch vụ hoặc muốn đặt lịch, hãy liên hệ với chúng tôi
@@ -32,7 +26,7 @@
     <div class="row mt-5">
         <div class="col-12">
             <h4 class="font-weight-bold">Mô Tả Dịch Vụ</h4>
-            <p class="overflow-hidden" [innerHTML]="descriptionTest"></p>
+            <div class="overflow-hidden ck ck-content" [innerHTML]="getSanitizedDescription()"></div>
         </div>
     </div>
 
@@ -42,29 +36,11 @@
     <!-- Phần Hình Ảnh Ví Dụ Dự Án -->
     <h4 class="mb-4 font-weight-bold">Một số hình ảnh của dự án</h4>
     <div class="row">
-        <div class="col-md-4 mb-4" *ngFor="let project of projects">
+        <div class="col-md-4 mb-4" *ngFor="let project of product.sliders">
             <div class="position-relative">
-                <img [src]="project" alt="Dự Án" class="img-fluid rounded shadow-lg hover-zoom"
+                <img [src]="apiUrl + '/' + project" alt="Dự Án" class="img-fluid rounded shadow-lg hover-zoom"
                     style="object-fit: cover; height: 300px;">
             </div>
         </div>
-    </div>
-
-    <hr class="my-5">
-
-    <!-- Phần thông tin liên hệ -->
-    <div id="contact" class="mt-5">
-        <h4 class="mb-4 font-weight-bold">Liên Hệ Để Biết Thêm Chi Tiết</h4>
-        <p class="text-muted">Nếu bạn có bất kỳ câu hỏi nào về dịch vụ hoặc muốn đặt lịch, hãy liên hệ với chúng tôi qua
-            thông tin dưới đây:</p>
-        <ul class="list-unstyled">
-            <li class="mb-3"><i class="bi bi-telephone text-primary"></i> Điện thoại: <strong class="text-dark">{{
-                    contactInfo.phone }}</strong></li>
-            <li class="mb-3"><i class="bi bi-envelope text-primary"></i> Email: <strong class="text-dark">{{
-                    contactInfo.email }}</strong></li>
-            <li class="mb-3"><i class="bi bi-geo-alt text-primary"></i> Địa chỉ: <strong class="text-dark">{{
-                    contactInfo.address }}</strong></li>
-        </ul>
-        <a [href]="'mailto:' + contactInfo.email" class="btn btn-success btn-lg">Gửi Email</a>
     </div>
 </div>

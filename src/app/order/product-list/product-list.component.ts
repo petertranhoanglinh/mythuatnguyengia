@@ -4,12 +4,14 @@ import { Store } from '@ngrx/store';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs/internal/Observable';
 import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
-import { productAction } from 'src/app/actions/product.action';
+import { getCategoryAction, productAction } from 'src/app/actions/product.action';
 import { ValidationUtil } from 'src/app/common/util/validation.util';
+import { CategoryModel } from 'src/app/model/cate.model';
 import { ProductResponseModel } from 'src/app/model/product-response.model';
 import { ProductModel } from 'src/app/model/product.model';
 import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
-import { getProducts, ProductState } from 'src/app/selectors/product.selector';
+import { getCategory, getProducts, ProductState } from 'src/app/selectors/product.selector';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-list',
@@ -20,7 +22,9 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
 
   items$ = new Observable<ProductResponseModel>();
   items : ProductModel [] = [] ;
-
+  cates : CategoryModel []  = [];
+  cates$ = new Observable<CategoryModel[]>();
+  activeCate = '';
   customOptions: OwlOptions ={
     nav: false,
     dots: true,
@@ -47,31 +51,40 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
     }
   };
 
+  key = '';
+
 
   page = 0;
   len  = 6;
   total = 0;
   countRewiew = 0;
+  apiUrl = environment.apiUrl;
   constructor(private productStore : Store<ProductState> ,
     private overlayLoadingStore: Store<OverlayLoadingState>,
     private cdr: ChangeDetectorRef
   ) {
 
     this.items$ = this.productStore.select(getProducts);
+    this.cates$ = this.productStore.select(getCategory);
   }
 
   ngOnInit( ): void {
     this.loadProduct();
+    this.productStore.dispatch(getCategoryAction());
     this.items$.subscribe(res => {
       if (ValidationUtil.isNotNullAndNotEmpty(res)){
         this.items = res.products;
         this.total = res.totalCount;
         this.countRewiew = res.countRewiew;
-
       }
       setTimeout(() => {
         this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
       }, 1000);
+    })
+    this.cates$.subscribe(res =>{
+      if(ValidationUtil.isNotNullAndNotEmpty(res)){
+        this.cates = res;
+      }
     })
   }
 
@@ -81,12 +94,11 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
       params : {
          page:this.page,
          len : this.len ,
-
+         category : this.activeCate ,
+         name : this.key
       }
     }))
-
   }
-
   handlePageEvent(page:PageEvent){
     this.page = page.pageIndex;
     this.len = page.pageSize;
@@ -100,14 +112,17 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   }
 
   ngAfterViewInit(): void {
-    // Force carousel to re-render
     setTimeout(() => {
       const carousel = document.querySelector('owl-carousel-o');
       if (carousel) {
-        // Re-initialize OwlCarousel
         carousel.dispatchEvent(new CustomEvent('reinitialize'));
       }
     }, 0);
+  }
+
+  search(id:string){
+    this.activeCate = id;
+    this.loadProduct();
   }
 
 

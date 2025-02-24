@@ -5,91 +5,49 @@
         <div class="categories-sidebar">
           <h4 class="mb-4">Danh Mục Tranh Vẽ Tường</h4>
           <div class="list-group">
-            <button class="list-group-item list-group-item-action active">
+            <button (click)="search('')" class="list-group-item list-group-item-action" [ngClass]="activeCate == '' ? 'active' : ''">
               <i class="bi bi-brush me-2"></i>Tất cả
             </button>
-            <button class="list-group-item list-group-item-action">
-              <i class="bi bi-brush me-2"></i>Tranh Thiên Nhiên
-            </button>
-            <button class="list-group-item list-group-item-action">
-              <i class="bi bi-brush me-2"></i>Tranh Chân Dung
-            </button>
-            <button class="list-group-item list-group-item-action">
-              <i class="bi bi-brush me-2"></i>Tranh Trừu Tượng
-            </button>
-            <button class="list-group-item list-group-item-action">
-              <i class="bi bi-brush me-2"></i>Tranh Phong Cảnh
-            </button>
-            <button class="list-group-item list-group-item-action">
-              <i class="bi bi-brush me-2"></i>Tranh Nhân Vật
-            </button>
+            <ng-container *ngFor="let item of cates">
+              <button class="list-group-item list-group-item-action"  (click)="search(item.id)"
+                 [ngClass]="activeCate == item.id ? 'active' : ''">
+                <i class="bi bi-brush me-2"></i>{{item.categoryName}}
+              </button>
+            </ng-container>
           </div>
         </div>
       </div>
-  
-      <!-- Right Content Area -->
       <div class="col-md-9">
-        <!-- Search Box -->
         <div class="search-box mb-4">
           <div class="input-group">
-            <span class="input-group-text bg-white border-end-0">
+            <input 
+              type="text" 
+              class="form-control border-start-0"  
+              [(ngModel)]="key"
+              (keyup.enter)="search(this.activeCate)"
+              placeholder="Tìm kiếm tranh vẽ...">
+            <span class="input-group-text bg-white border-end-0" (click)="search(this.activeCate)">
               <i class="bi bi-search"></i>
             </span>
-            <input type="text" class="form-control border-start-0" 
-                   placeholder="Tìm kiếm tranh vẽ...">
           </div>
         </div>
-  
-        <!-- Products Grid -->
         <h2 class="display-6 mb-4">Dịch Vụ Vẽ Tường</h2>
         <div class="row g-4">
-          <!-- Tranh Vẽ Cảnh Biển Card -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <div class="position-relative">
-                <a routerLink="/shopping/detail/1" class="text-decoration-none">
-                  <img src="https://example.com/painting-seascape.jpg" 
-                       alt="Tranh Cảnh Biển" class="card-img-top">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Tranh Cảnh Biển</h5>
-                <p class="card-text">Chúng tôi cung cấp dịch vụ vẽ tranh cảnh biển mang lại cảm giác thư giãn và thoải mái cho không gian sống của bạn.</p>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Tranh Vẽ Trẻ Em Card -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <div class="position-relative">
-                <a href="#" class="text-decoration-none">
-                  <img src="https://example.com/painting-kids.jpg" 
-                       alt="Tranh Vẽ Cho Trẻ Em" class="card-img-top">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Tranh Vẽ Cho Trẻ Em</h5>
-                <p class="card-text">Chúng tôi thiết kế tranh vẽ ngộ nghĩnh cho không gian của trẻ, giúp kích thích sự sáng tạo và trí tưởng tượng của trẻ nhỏ.</p>
+          <ng-container *ngFor="let item of items">
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 shadow-sm">
+                <div class="position-relative">
+                  <a  [routerLink]="['/shopping/detail', item.id]"  class="text-decoration-none">
+                    <img src="{{apiUrl + '/' +  item.img}}" 
+                         alt="{{item.name}}" class="card-img-top">
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{item.name}}</h5>
+                </div>
               </div>
             </div>
-          </div>
-  
-          <!-- Tranh Vẽ Trừu Tượng Card -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <div class="position-relative">
-                <a href="#" class="text-decoration-none">
-                  <img src="https://example.com/painting-abstract.jpg" 
-                       alt="Tranh Vẽ Trừu Tượng" class="card-img-top">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Tranh Vẽ Trừu Tượng</h5>
-                <p class="card-text">Tranh vẽ trừu tượng sẽ mang lại sự độc đáo và phong cách cá nhân cho không gian của bạn.</p>
-              </div>
-            </div>
-          </div>
+          </ng-container>
         </div>
       </div>
     </div>

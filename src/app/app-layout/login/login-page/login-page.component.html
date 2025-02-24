@@ -12,7 +12,7 @@
 
           <div class="form-group">
               <i class="fas fa-lock form-icon"></i>
-              <input type="password" [(ngModel)]="password" class="form-control" id="password" placeholder="Password" required>
+              <input  type="password"    (keyup.enter)="loginPage()" [(ngModel)]="password" class="form-control" id="password" placeholder="Password" required>
           </div>
 
           <button type="button" class="btn-login" (click)="loginPage()">Sign In</button>

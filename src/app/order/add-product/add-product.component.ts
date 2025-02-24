@@ -4,15 +4,16 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs/internal/Observable';
-import { productAction, productActionSuscess, saveProductAction, saveProductActionSuscess } from 'src/app/actions/product.action';
+import { getCategoryAction, productAction, productActionSuscess, saveProductAction, saveProductActionSuscess } from 'src/app/actions/product.action';
 import { ValidationUtil } from 'src/app/common/util/validation.util';
 import { ProductResponseModel } from 'src/app/model/product-response.model';
 import { ProductModel } from 'src/app/model/product.model';
 import { TableConfig } from 'src/app/model/table-config';
 import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
-import { getProducts, getResultSaveProduct, ProductState } from 'src/app/selectors/product.selector';
+import { getCategory, getProducts, getResultSaveProduct, ProductState } from 'src/app/selectors/product.selector';
 import { ProductService } from 'src/app/service/product.service';
 import { environment } from 'src/environments/environment';
+import { CategoryModel } from 'src/app/model/cate.model';
 
 @Component({
   selector: 'app-add-product',
@@ -26,13 +27,14 @@ export class AddProductComponent implements OnInit {
   product = {
     id: null,
     name: '',
-    price: null,
-    stock: null,
+    price: 0,
+    stock: 0,
     description: '',
     sale: false,
     new: false,
     best: false,
     rate: 0,
+    category : ''
   };
   img: any = '';
   slider1: any = '';
@@ -50,6 +52,8 @@ export class AddProductComponent implements OnInit {
   sliderName5: any = '';
   sliderName6: any = '';
   result$ =  new Observable <ResultModel>();
+  cates =  [] as CategoryModel [];
+  cates$ = new Observable<CategoryModel[]>();
 
   config: TableConfig = {
     columns: [
@@ -79,12 +83,12 @@ export class AddProductComponent implements OnInit {
   constructor( private productStore: Store<ProductState>,
                private toastr: ToastrService ,
                private overlayLoadingStore: Store<OverlayLoadingState>,
+               
   ) {
 
     this.result$ = this.productStore.select(getResultSaveProduct);
     this.items$ = this.productStore.select(getProducts);
-
-
+    this.cates$ = this.productStore.select(getCategory);
   }
 
 
@@ -96,6 +100,13 @@ export class AddProductComponent implements OnInit {
           this.resetForm();
           this.toastr.success(String(res.msg));
         }
+      }
+    })
+
+    this.productStore.dispatch(getCategoryAction());
+    this.cates$.subscribe(res =>{
+      if(ValidationUtil.isNotNullAndNotEmpty(res)){
+        this.cates = res;
       }
     })
 
@@ -185,6 +196,12 @@ export class AddProductComponent implements OnInit {
     if(ValidationUtil.isNotNullAndNotEmpty(this.slider4)){
       sliders.push(this.slider4);
     }
+    if(ValidationUtil.isNotNullAndNotEmpty(this.slider5)){
+      sliders.push(this.slider5);
+    }
+    if(ValidationUtil.isNotNullAndNotEmpty(this.slider6)){
+      sliders.push(this.slider6);
+    }
     let params = {};
 
 
@@ -232,7 +249,8 @@ export class AddProductComponent implements OnInit {
         best: this.product.best ,
         img : img,
         sliders : slidersName,
-        rate:this.product.rate/100
+        rate:this.product.rate/100,
+        category : this.product.category
 
 
       }
@@ -246,7 +264,8 @@ export class AddProductComponent implements OnInit {
         sale: this.product.sale,
         new: this.product.new,
         best: this.product.best,
-        rate:this.product.rate/100
+        rate:this.product.rate/100,
+        category : this.product.category
       }
     }
 
@@ -262,13 +281,14 @@ export class AddProductComponent implements OnInit {
     this.product = {
       id: null,
       name: '',
-      price: null,
-      stock: null,
+      price: 0,
+      stock: 0,
       description: '',
       sale: false,
       new: false,
       best: false,
       rate:0,
+      category : ''
     };
 
     // Reset the image and slider fields
@@ -328,7 +348,8 @@ export class AddProductComponent implements OnInit {
       sale: item.sale,
       new: item.new,
       best: item.best,
-      rate:item.rate * 100
+      rate:item.rate * 100,
+      category : item.category
     };
 
     if(ValidationUtil.isNotNullAndNotEmpty(item.img)){

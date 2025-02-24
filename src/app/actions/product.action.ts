@@ -3,6 +3,7 @@ import { MemberModel } from "../model/member.model";
 import { ResultModel } from "../model/result.model";
 import { ProductModel } from "../model/product.model";
 import { ProductResponseModel, ProductRewiewResponseModel } from "../model/product-response.model";
+import { CategoryModel } from "../model/cate.model";
 
 // load products
 export const productAction = createAction(
@@ -75,7 +76,7 @@ export const saveProductActionFail = createAction(
 // saveCategory
 
 export const saveCategoryAction = createAction(
-  "[PRODUCT] saveProductAction",
+  "[PRODUCT] saveCategoryAction",
   props<{ params: any , img:any}>()
 );
 
@@ -86,5 +87,20 @@ export const saveCategoryActionSuscess = createAction(
 
 export const saveCategoryActionFail = createAction(
     "[PRODUCT] saveCategoryAction fail",
+    props<{ msg: any }>()
+);
+
+
+export const getCategoryAction = createAction(
+  "[PRODUCT] getCategoryAction"
+);
+
+export const getCategoryActionSuscess = createAction(
+    "[PRODUCT] getCategoryAction suscess",
+    props<{ items: CategoryModel[]}>()
+);
+
+export const getCategoryActionFail = createAction(
+    "[PRODUCT] getCategoryAction fail",
     props<{ msg: any }>()
 );
