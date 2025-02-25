@@ -55,88 +55,20 @@
 <div class="container mt-5" data-aos="fade-up">
   <h3 class="text-left mb-4">Dịch Vụ Vẽ Tranh Tường tại Nguyễn Gia</h3>
   <div class="row mb-4" data-aos-delay="100">
-    <div class="col-6 col-md-3 mb-3">
-      <div class="card">
-        <img src="https://vetranhtuongdart.com/wp-content/uploads/2023/07/ve-tranh-tuong-quan-an-2.jpg"
-          class="card-img-top" style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-        <div class="card-body">
-          <h5 class="card-title">Tranh Tường 1</h5>
-          <p class="card-text">Mô tả ngắn gọn về tranh tường 1.</p>
+    <ng-container *ngFor="let item of items">
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card">
+
+          <img src="{{apiUrl + '/' + item.img}}"  class="card-img-top" style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-6 col-md-3 mb-3">
-      <div class="card">
-        <img src="https://vetranhtuongdart.com/wp-content/uploads/2022/05/ve-tranh-tuong-dart-CONG-TY.jpg"
-          class="card-img-top" style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-        <div class="card-body">
-          <h5 class="card-title">Tranh Tường 1</h5>
-          <p class="card-text">Mô tả ngắn gọn về tranh tường 1.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3 mb-3">
-      <div class="card">
-        <img src="https://vetranhtuongdart.com/wp-content/uploads/2023/10/ve_tranh_tuong_dart-9-min.jpg"
-          class="card-img-top" style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-        <div class="card-body">
-          <h5 class="card-title">Tranh Tường 1</h5>
-          <p class="card-text">Mô tả ngắn gọn về tranh tường 1.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3 mb-3">
-      <div class="card">
-        <img src="https://vetranhtuongdart.com/wp-content/uploads/2022/07/1.png" class="card-img-top"
-          style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-        <div class="card-body">
-          <h5 class="card-title">Tranh Tường 1</h5>
-          <p class="card-text">Mô tả ngắn gọn về tranh tường 1.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3 mb-3">
-      <div class="card">
-        <img src="https://vetranhtuongdart.com/wp-content/uploads/2022/07/1.png" class="card-img-top"
-          style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-        <div class="card-body">
-          <h5 class="card-title">Tranh Tường 1</h5>
-          <p class="card-text">Mô tả ngắn gọn về tranh tường 1.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3 mb-3">
-      <div class="card">
-        <img src="https://vetranhtuongdart.com/wp-content/uploads/2022/07/1.png" class="card-img-top"
-          style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-        <div class="card-body">
-          <h5 class="card-title">Tranh Tường 1</h5>
-          <p class="card-text">Mô tả ngắn gọn về tranh tường 1.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3 mb-3">
-      <div class="card">
-        <img src="https://vetranhtuongdart.com/wp-content/uploads/2022/07/dart_5.png" class="card-img-top"
-          style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-        <div class="card-body">
-          <h5 class="card-title">Tranh Tường 1</h5>
-          <p class="card-text">Mô tả ngắn gọn về tranh tường 1.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3 mb-3">
-      <div class="card">
-        <img src="https://vetranhtuongdart.com/wp-content/uploads/2022/07/dart_5.png" class="card-img-top"
-          style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-        <div class="card-body">
-          <h5 class="card-title">Tranh Tường 1</h5>
-          <p class="card-text">Mô tả ngắn gọn về tranh tường 1.</p>
-        </div>
-      </div>
-    </div>
+    </ng-container>
+
   </div>
-  <app-paging></app-paging>
+  <app-paging class="mb-2" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
 </div>
 
 <!-- Customer Reviews Section -->

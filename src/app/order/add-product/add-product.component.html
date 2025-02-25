@@ -20,16 +20,14 @@
           <option [value]="item.id">{{ item.categoryName }}</option>
         </ng-container>
       </select>
-      
     </div>
-
     <div class="form-group">
       <label for="productPrice" class="font-weight-bold">Giá</label>
       <input type="number" class="form-control" id="productPrice" [(ngModel)]="product.price" name="productPrice"  required>
     </div>
     <div class="form-group">
       <label for="productDescription" class="font-weight-bold">Mô tả dịch vụ</label>
-      <div class="form-control" contenteditable="true" #descriptionContent id="productDescription"></div>
+      <ck-content (changeContent)="handelContent($event)"  [content]="product.description"></ck-content>
     </div>
     <div class="form-group">
       <label class="font-weight-bold">Hình ảnh dịch vụ</label>

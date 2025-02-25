@@ -1,21 +1,21 @@
-
 .categories-sidebar {
-  background: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .list-group-item {
   border: none;
-  padding: 12px 15px;
-  margin-bottom: 5px;
-  border-radius: 6px !important;
+  padding: 12px 20px;
+  margin-bottom: 8px;
+  border-radius: 8px !important;
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .list-group-item:hover {
-  background-color: #f8f9fa;
+  background-color: #e9ecef;
   transform: translateX(5px);
 }
 
@@ -24,32 +24,86 @@
   border-color: #0d6efd;
 }
 
-.card {
-  transition: transform 0.3s ease;
+.search-box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+.input-group {
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.form-control {
   border: none;
+  padding: 15px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.input-group-text {
+  border: none;
+  cursor: pointer;
+  padding: 0 20px;
+  transition: background-color 0.3s;
+}
+
+.input-group-text:hover {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
 }
 
 .card-img-top {
-  height: 200px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 8px 8px 0 0;
+  transition: transform 0.3s;
 }
 
-.search-box {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.card:hover .card-img-top {
+  transform: scale(1.05);
 }
 
-.search-box .form-control {
-  padding: 12px;
-  font-size: 1rem;
+.card-body {
+  padding: 20px;
 }
 
-.search-box .input-group-text {
-  padding: 0 15px;
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0;
+}
+
+.display-6 {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .categories-sidebar {
+      margin-bottom: 20px;
+  }
+
+  .display-6 {
+      font-size: 1.5rem;
+  }
 }

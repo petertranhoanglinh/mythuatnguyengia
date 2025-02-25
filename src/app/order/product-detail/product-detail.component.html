@@ -1,46 +1,48 @@
 <div class="container mt-5 mb-5">
-    <h3 class="mb-4 font-weight-bold">{{ product.name }}</h3>
-    <div class="row align-items-center">
-        <div class="col-md-6">
-            <img [src]="apiUrl + '/' + product.sliders[0]" alt="Vẽ Tranh Cảnh Biển" class="img-fluid rounded shadow-lg hover-zoom">
-        </div>
-        <div class="col-md-6">
-            <h4 class="font-weight-bold">Giá dịch vụ</h4>
-            <p class="text-muted">Giá dịch vụ vẽ {{product.name}} sẽ thay đổi tùy theo kích thước và độ phức tạp của tác
-                phẩm. Vui lòng liên hệ với chúng tôi để nhận báo giá cụ thể.</p>
-            <h4 class="font-weight-bold">Liên Hệ Để Biết Thêm Chi Tiết</h4>
-            <p class="text-muted">Nếu bạn có bất kỳ câu hỏi nào về dịch vụ hoặc muốn đặt lịch, hãy liên hệ với chúng tôi
-                qua thông tin dưới đây:</p>
-            <ul class="list-unstyled">
-                <li class="mb-3"><i class="bi bi-telephone text-primary"></i> Điện thoại: <strong class="text-dark">0949
-                        315 809</strong></li>
-                <li class="mb-3"><i class="bi bi-envelope text-primary"></i> Email: <strong
-                        class="text-dark">contact@tranhve.com</strong></li>
-                <li class="mb-3"><i class="bi bi-geo-alt text-primary"></i> Địa chỉ: <strong class="text-dark">123 Đường
-                        Nghệ Thuật, Hà Nội, Việt Nam</strong></li>
-            </ul>
-            <a href="#contact" class="btn btn-primary btn-lg">Liên Hệ Ngay</a>
-        </div>
-    </div>
+  <h3 class="product-title">{{ product.name }}</h3>
 
-    <div class="row mt-5">
-        <div class="col-12">
-            <h4 class="font-weight-bold">Mô Tả Dịch Vụ</h4>
-            <div class="overflow-hidden ck ck-content" [innerHTML]="getSanitizedDescription()"></div>
-        </div>
-    </div>
+  <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+          <div id="productSlider" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                  <div class="carousel-item" *ngFor="let slide of product.sliders; let i = index" [class.active]="i === 0">
+                      <img [src]="apiUrl + '/' + slide" [alt]="product.name" class="img-fluid rounded shadow-lg">
+                  </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#productSlider" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#productSlider" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
+      </div>
 
+      <div class="col-lg-6">
+          <div class="ps-lg-4">
+              <h4 class="mb-4 fw-bold">Giá dịch vụ</h4>
+              <p class="text-muted lead">Giá dịch vụ vẽ {{product.name}} sẽ thay đổi tùy theo kích thước và độ phức tạp của tác phẩm. Vui lòng liên hệ với chúng tôi để nhận báo giá cụ thể.</p>
 
-    <hr class="my-5">
+              <h4 class="mb-4 fw-bold mt-5">Liên Hệ Để Biết Thêm Chi Tiết</h4>
+              <p class="text-muted">Nếu bạn có bất kỳ câu hỏi nào về dịch vụ hoặc muốn đặt lịch, hãy liên hệ với chúng tôi qua thông tin dưới đây:</p>
 
-    <!-- Phần Hình Ảnh Ví Dụ Dự Án -->
-    <h4 class="mb-4 font-weight-bold">Một số hình ảnh của dự án</h4>
-    <div class="row">
-        <div class="col-md-4 mb-4" *ngFor="let project of product.sliders">
-            <div class="position-relative">
-                <img [src]="apiUrl + '/' + project" alt="Dự Án" class="img-fluid rounded shadow-lg hover-zoom"
-                    style="object-fit: cover; height: 300px;">
-            </div>
-        </div>
-    </div>
+              <ul class="list-unstyled contact-info mt-4">
+                  <li><i class="bi bi-telephone"></i> Điện thoại: <strong>0949 315 809</strong></li>
+                  <li><i class="bi bi-envelope"></i> Email: <strong>contact@tranhve.com</strong></li>
+                  <li><i class="bi bi-geo-alt"></i> Địa chỉ: <strong>123 Đường Nghệ Thuật, Hà Nội, Việt Nam</strong></li>
+              </ul>
+
+              <a href="#contact" class="btn btn-custom btn-lg mt-4 shadow-sm">Liên Hệ Ngay</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="row mt-5">
+      <div class="col-12">
+          <h4 class="fw-bold mb-4">Mô Tả Dịch Vụ</h4>
+          <div class="overflow-hidden ck ck-content" [innerHTML]="getSanitizedDescription()"></div>
+      </div>
+  </div>
 </div>

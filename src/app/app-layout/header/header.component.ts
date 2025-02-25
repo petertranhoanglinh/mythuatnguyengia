@@ -35,11 +35,7 @@ export class HeaderComponent implements OnInit {
   isMobileMenuOpen = false;
   menus: Menu[] = [
     {
-      label:'Giới thiệu',
-      items : [
-        {label : 'Giới thiệu' , route : '/about/team'},
-        {label : 'Đánh giá của cộng đồng' , route : '/about/testimonials'}
-      ]
+      label:'Giới thiệu', route : '/about/team'
     },
     {
       label:'Dịch vụ vẽ tranh',

@@ -30,12 +30,11 @@ export class ProductDetailComponent implements OnInit {
   serviceImage = 'https://mythuattranvuong.com/public/ckeditor/imagesimages/ve-tranh-tuong-phong-canh-bien-anh-6.jpg'; // Thay đổi thành URL hình ảnh bạn muốn
   projects = [
     'https://scontent.fsgn5-13.fna.fbcdn.net/v/t39.30808-6/479178575_1129346045601423_3647820936825958618_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEn48g3fmIIo-SohU03KWQ8zWivbz7gCcPNaK9vPuAJw0ob4Lw9Foo6A6OpGhQDQNnlGb401uGo1rS0ED8S4KNf&_nc_ohc=N8wpfdU9Wv8Q7kNvgHUDajJ&_nc_oc=AdjU6sqLqvtLn0tlrTwNpypDwUZuRKO5QGJYOobbV8hnAU_oRU4dECjt0aWrvh_eQt0&_nc_zt=23&_nc_ht=scontent.fsgn5-13.fna&_nc_gid=A1L-kQrWTNYg56mwC8PUc3S&oh=00_AYAsJzgQBmLOkuTvgdYsCjGabtQ8ADUTX0F-57rprrmBBA&oe=67C0985A',
-
     'https://thegioigiaydantuong.vn/wp-content/uploads/2016/10/tranh-d%C3%A1n-t%C6%B0%E1%BB%9Dng-bi%E1%BB%83n-160.jpg',
     'https://thegioigiaydantuong.vn/wp-content/uploads/2016/10/tranh-d%C3%A1n-t%C6%B0%E1%BB%9Dng-bi%E1%BB%83n-160.jpg',
     'https://thegioigiaydantuong.vn/wp-content/uploads/2016/10/tranh-d%C3%A1n-t%C6%B0%E1%BB%9Dng-bi%E1%BB%83n-160.jpg',
   ];
-  
+
   // Thông tin liên hệ
   contactInfo = {
     phone: '0949 315 809',
@@ -53,11 +52,6 @@ export class ProductDetailComponent implements OnInit {
   }
   productId:string = "";
   apiUrl:string = environment.apiUrl;
-
-   
-
-
-
   ngOnInit(): void {
     this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
     this.route.paramMap.subscribe(params => {

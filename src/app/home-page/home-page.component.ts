@@ -8,6 +8,7 @@ import { ProductModel } from '../model/product.model';
 import { environment } from 'src/environments/environment';
 import { SwiperService } from '../service/swiper.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 declare var initSlider: any;  // Khai báo jQuery
 
@@ -22,15 +23,16 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
   items$: Observable<ProductResponseModel>;
   items: ProductModel[] = [];
   page = 0;
-  len = 24;
+  len = 8;
   loading = false; // Trạng thái đang tải
   apiUrl = environment.apiUrl;
+  total = 0
 
   public swiperConfig = {
     slidesPerView: 1,
     spaceBetween: 20,
     loop: true,
-    
+
     breakpoints: {
         640: {
             slidesPerView: 2,
@@ -39,17 +41,17 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
             slidesPerView: 3,
         }
     },
-    
+
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    
+
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
     },
-    
+
     autoplay: {
         delay: 3000,
         disableOnInteraction: false,
@@ -69,8 +71,9 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
     this.loadProduct();
     this.items$.subscribe((res) => {
       if (res && res.products.length) {
-        this.items = [...this.items, ...res.products];
+        this.items = res.products
         this.loading = false;
+        this.total = res.totalCount;
       }
     });
   }
@@ -121,5 +124,11 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
     } catch (error) {
     } finally {
     }
+  }
+
+  handlePageEvent(page:PageEvent){
+      this.page = page.pageIndex;
+      this.len = page.pageSize;
+    this.loadProduct()
   }
 }

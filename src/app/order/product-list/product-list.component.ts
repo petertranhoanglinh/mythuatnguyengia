@@ -24,6 +24,7 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   items : ProductModel [] = [] ;
   cates : CategoryModel []  = [];
   cates$ = new Observable<CategoryModel[]>();
+  cateActive: CategoryModel = {} as CategoryModel;
   activeCate = '';
   customOptions: OwlOptions ={
     nav: false,
@@ -55,7 +56,7 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
 
 
   page = 0;
-  len  = 6;
+  len  = 12;
   total = 0;
   countRewiew = 0;
   apiUrl = environment.apiUrl;
@@ -123,6 +124,10 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   search(id:string){
     this.activeCate = id;
     this.loadProduct();
+
+    if(ValidationUtil.isNotNullAndNotEmpty(id)){
+      this.cateActive = this.cates.find(cate => cate.id === id)!;
+    }
   }
 
 

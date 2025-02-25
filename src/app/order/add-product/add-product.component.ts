@@ -83,7 +83,7 @@ export class AddProductComponent implements OnInit {
   constructor( private productStore: Store<ProductState>,
                private toastr: ToastrService ,
                private overlayLoadingStore: Store<OverlayLoadingState>,
-               
+
   ) {
 
     this.result$ = this.productStore.select(getResultSaveProduct);
@@ -382,6 +382,10 @@ export class AddProductComponent implements OnInit {
     if (this.descriptionContent) {
       this.descriptionContent.nativeElement.innerHTML = item.description || '';
     }
+  }
+
+  handelContent(content : string){
+    this.product.description = content;
   }
 
 

@@ -1,1 +1,8 @@
-<p>ck-content works!</p>
+<ckeditor
+    [(ngModel)]="content"
+    name="content"
+    [editor]="Editor"
+    [config]="editorConfig"
+    (ready)="onReady($event)"
+    (ngModelChange)="onContentChange()"
+></ckeditor>

@@ -12,6 +12,8 @@ import { CustomDialogComponent } from './custom-dialog/custom-dialog.component';
 import { SliderComponent } from './slider/slider.component';
 import { MessageButtonComponent } from './message-button/message-button.component';
 import { CkContentComponent } from './ck-content/ck-content.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     TableTemplateComponent,
@@ -30,7 +32,9 @@ import { CkContentComponent } from './ck-content/ck-content.component';
   imports: [
     CommonModule,
     MeterialModule,
-    PipeModule
+    PipeModule,
+    CKEditorModule,
+    FormsModule
 
   ]
   ,
@@ -41,7 +45,8 @@ import { CkContentComponent } from './ck-content/ck-content.component';
     PopupComponent,
     ProductComponent,
     SliderComponent,
-    MessageButtonComponent
+    MessageButtonComponent,
+    CkContentComponent
   ],
 })
 export class ComponentsModule { }
