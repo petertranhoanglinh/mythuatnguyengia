@@ -11,6 +11,7 @@ import { PipeModule } from '../pipe/pipe.module';
 import { CustomDialogComponent } from './custom-dialog/custom-dialog.component';
 import { SliderComponent } from './slider/slider.component';
 import { MessageButtonComponent } from './message-button/message-button.component';
+import { CkContentComponent } from './ck-content/ck-content.component';
 @NgModule({
   declarations: [
     TableTemplateComponent,
@@ -21,7 +22,8 @@ import { MessageButtonComponent } from './message-button/message-button.componen
     ProductComponent,
     CustomDialogComponent,
     SliderComponent,
-    MessageButtonComponent
+    MessageButtonComponent,
+    CkContentComponent
 
 
   ],
