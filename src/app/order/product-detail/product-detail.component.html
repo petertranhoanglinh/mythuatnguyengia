@@ -6,7 +6,7 @@
           <div id="productSlider" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                   <div class="carousel-item" *ngFor="let slide of product.sliders; let i = index" [class.active]="i === 0">
-                      <img [src]="apiUrl + '/' + slide" [alt]="product.name" class="img-fluid rounded shadow-lg">
+                      <img [src]="slide" [alt]="product.name" class="img-fluid rounded shadow-lg">
                   </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#productSlider" data-bs-slide="prev">

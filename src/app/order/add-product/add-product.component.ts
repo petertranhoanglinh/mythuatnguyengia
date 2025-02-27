@@ -204,11 +204,6 @@ export class AddProductComponent implements OnInit {
     }
     let params = {};
 
-
-    const description = this.descriptionContent.nativeElement.innerHTML;
-    this.product.description = description;
-
-
     if(ValidationUtil.isNotNullAndNotEmpty(this.product.id)){
 
        let slidersName : string [] = [];
@@ -353,12 +348,12 @@ export class AddProductComponent implements OnInit {
     };
 
     if(ValidationUtil.isNotNullAndNotEmpty(item.img)){
-      this.imgName = this.apiUrl  + "/" + item.img
+      this.imgName = item.img
     }
 
     if(ValidationUtil.isNotNullAndNotEmpty(item.sliders)){
       for (let i = 0; i < item.sliders.length; i++) {
-        const sliderUrl = this.apiUrl + "/" + item.sliders[i];
+        const sliderUrl =  item.sliders[i];
         switch (i) {
           case 0:
             this.sliderName1 = sliderUrl;

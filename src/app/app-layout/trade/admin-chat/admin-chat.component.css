@@ -29,7 +29,7 @@
 }
 
 .message-box .card-header {
-  background-color: #143548;
+  background-color: #000000;
   color: #ffffff;
   border-radius: 8px 8px 0 0;
 }
@@ -47,7 +47,7 @@
 .message .avatar {
   width: 40px;
   height: 40px;
-  background-color: #143548;
+  background-color: #000000;
   border-radius: 50%;
 }
 
@@ -87,13 +87,13 @@
   text-decoration: none;
   color: #007bff;
   padding: 5px;
-  border: 1px solid #143548;
+  border: 1px solid #000000;
   border-radius: 5px;
   display: inline-block;
 }
 
 .file-attachment:hover {
-  background-color: #143548;
+  background-color: #000000;
   color: #ffffff;
 }
 

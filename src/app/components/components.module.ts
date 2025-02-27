@@ -14,6 +14,7 @@ import { MessageButtonComponent } from './message-button/message-button.componen
 import { CkContentComponent } from './ck-content/ck-content.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule } from '@angular/forms';
+import { VideoComponent } from './video/video.component';
 @NgModule({
   declarations: [
     TableTemplateComponent,
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     CustomDialogComponent,
     SliderComponent,
     MessageButtonComponent,
-    CkContentComponent
+    CkContentComponent,
+    VideoComponent
 
 
   ],
@@ -46,7 +48,8 @@ import { FormsModule } from '@angular/forms';
     ProductComponent,
     SliderComponent,
     MessageButtonComponent,
-    CkContentComponent
+    CkContentComponent,
+    VideoComponent
   ],
 })
 export class ComponentsModule { }

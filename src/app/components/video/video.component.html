@@ -1,0 +1,32 @@
+<!-- video.component.html -->
+<div class="container mt-5" data-aos="fade-up">
+  <h3 class="text-left mb-4 mt-3">Video Thực Hiện</h3>
+  <div class="row mb-5">
+    <div class="col-6 col-md-4 mt-2" *ngFor="let video of videos">
+      <div class="card video-container">
+        <!-- Thumbnail -->
+        <div class="thumbnail-wrapper"
+             *ngIf="!loadedVideos[video.id]"
+             (click)="loadVideo(video.id)">
+          <img [src]="video.thumbnail" [alt]="video.title" class="card-img-top">
+          <div class="play-overlay">
+            <i class="bi bi-play-circle-fill"></i>
+          </div>
+        </div>
+
+        <!-- Video iframe -->
+        <div class="video-wrapper" *ngIf="loadedVideos[video.id]">
+          <iframe [src]="getVideoUrl(video.id) | safe"
+                 frameborder="0"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                 allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">{{video.title}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

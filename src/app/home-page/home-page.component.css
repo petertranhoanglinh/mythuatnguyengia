@@ -12,14 +12,18 @@
   .btn {
     border-radius: 20px; /* Rounded buttons */
   }
-  
+
   .card {
     border: none; /* Remove card border */
     transition: transform 0.2s; /* Animation on hover */
   }
-  
+
   .card:hover {
     transform: scale(1.05); /* Scale effect */
+  }
+
+  h3{
+    color: #d9232d !important;
   }
 
   /* Responsive adjustments */
@@ -27,7 +31,7 @@
     .display-4 {
       font-size: 1.5rem; /* Adjust heading size */
     }
-    
+
     .lead {
       font-size: 1rem; /* Adjust paragraph size */
     }
@@ -39,4 +43,20 @@
     }
   }
 
-  
+
+
+  /* Add this to your CSS file or in a <style> tag */
+#hero {
+  max-height: 600px; /* Adjust this value as needed */
+  overflow: hidden;   /* Hide any overflowing content */
+}
+
+#hero-carousel .carousel-item img {
+  max-height: 600px; /* This should match or be less than the carousel's max-height */
+  object-fit: cover;  /* Make sure the image covers the area */
+  width: 100%;
+}
+
+.carousel-container {
+  padding: 20px; /* Adjust the padding to fit within the new height */
+}

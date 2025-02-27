@@ -1,15 +1,15 @@
 /* Áp dụng cho màn hình có chiều rộng từ 992px trở lên (PC) */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   #navmenu ul li a {
-    font-size: 18px; /* Tăng kích thước font chữ */
-    font-weight: 500; /* Độ đậm của font chữ */
+    font-size: 18px;
+    font-weight: 500;
   }
 
   #navmenu ul li.dropdown ul li a {
-    font-size: 16px; /* Kích thước font chữ cho menu con */
+    font-size: 16px;
   }
 
   #navmenu ul li.dropdown ul li.dropdown ul li a {
-    font-size: 14px; /* Kích thước font chữ cho menu con cấp 2 */
+    font-size: 14px;
   }
-}
+} */

@@ -64,7 +64,7 @@
 
 .info-icon {
   font-size: 2rem;
-  color: #143548;
+  color: #000000;
   margin-bottom: 10px;
 }
 
@@ -76,7 +76,7 @@
 
 .info-link {
   font-size: 1rem;
-  color: #143548;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -110,12 +110,12 @@
 }
 
 .form-control:focus {
-  border-color: #143548;
+  border-color: #000000;
   outline: none;
 }
 
 .submit-btn {
-  background-color: #143548;
+  background-color: #000000;
   color: #fff;
   padding: 10px 20px;
   border: none;
