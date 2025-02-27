@@ -20,37 +20,37 @@ export class VideoComponent implements OnInit {
       id:   '../../../assets/video/6349499914477.mp4',
       title: 'Video Tranh Tường 1',
       description: 'Mô tả ngắn về video 1',
-      thumbnail: '../../assets/img/youtobe.png'
+      thumbnail: '../../../assets/hinh/z6348903745611_dbdefa74a73aac356fd4ec112bcc285b.jpg'
     },
     {
       id:   '../../../assets/video/6349500151111.mp4',
       title: 'Video Tranh Tường 2',
       description: 'Mô tả ngắn về video 2',
-      thumbnail: '../../assets/img/youtobe.png'
+      thumbnail: '../../../assets/hinh/z6348903759292_0bb558a2e90c6e890c386205f7eb94c8.jpg'
     },
     {
       id:   '../../../assets/video/6349497873634.mp4',
       title: 'Video Tranh Tường 3',
       description: 'Mô tả ngắn về video 3',
-      thumbnail: '../../assets/img/youtobe.png'
+     thumbnail: '../../../assets/hinh/z6348903755964_369d5de2822a8cf705bc8d19e2152080.jpg'
     },
     {
       id:   '../../../assets/video/6349500494127.mp4',
       title: 'Video Tranh Tường 4',
       description: 'Mô tả ngắn về video 3',
-      thumbnail: '../../assets/img/youtobe.png'
+      thumbnail: '../../../assets/hinh/z6348903773099_9d11a98017d61cb8093866432dec88b9.jpg'
     },
     {
       id:   '../../../assets/video/6349500847689.mp4',
       title: 'Video Tranh Tường 5',
       description: 'Mô tả ngắn về video 3',
-      thumbnail: '../../assets/img/youtobe.png'
+      thumbnail: '../../../assets/hinh/z6348903773099_9d11a98017d61cb8093866432dec88b9.jpg'
     },
     {
       id:   '../../../assets/video/6349501209736.mp4',
       title: 'Video Tranh Tường 6',
       description: 'Mô tả ngắn về video 3',
-      thumbnail: '../../assets/img/youtobe.png'
+       thumbnail: '../../../assets/hinh/z6348903818076_cf9f80792855c0dfc41c57978ba5f487.jpg'
     }
   ];
 

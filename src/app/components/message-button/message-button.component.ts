@@ -11,11 +11,13 @@ import { AuthDetail } from 'src/app/common/util/auth-detail';
 export class MessageButtonComponent {
   constructor(private router: Router , private toastr: ToastrService ) {}
   openChat() {
-    if(AuthDetail.isLogin()){
-      this.router.navigate(['/chat']);
-    }else{
-      this.toastr.info("Hãy đăng nhập để sử dụng dịch vụ này của chúng tôi")
-    }
+    // if(AuthDetail.isLogin()){
+    //   this.router.navigate(['/chat']);
+    // }else{
+    //   this.toastr.info("Hãy đăng nhập để sử dụng dịch vụ này của chúng tôi")
+    // }
+
+    window.open("https://www.tiktok.com/@wall_decor?lang=vi-VN", "_blank");
 
   }
   openZalo() {
@@ -23,6 +25,6 @@ export class MessageButtonComponent {
     window.location.href = "zalo://send?phone=0949315809";
 }
   openFacebook(){
-    window.open("https://www.facebook.com/profile.php?id=61564381650981", "_blank");
+    window.open("https://www.facebook.com/MyThuatNguyenGia0949315809", "_blank");
   }
 }

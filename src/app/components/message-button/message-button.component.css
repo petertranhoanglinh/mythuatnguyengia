@@ -1,42 +1,46 @@
 .message-buttons-container {
-  position: fixed; /* Fixed positioning for the whole container */
-  right: 20px; /* 20px from the right edge */
-  bottom: 20px; /* Start from the bottom */
-  z-index: 1000; /* Make sure the buttons are on top of other elements */
-  display: flex;
-  flex-direction: column; /* Stack buttons vertically */
-  gap: 20px; /* Add space between buttons */
-  align-items: center; /* Center align the buttons */
+  display: flex; /* Sắp xếp các nút theo hàng */
+  justify-content: flex-start; /* Căn trái */
+  gap: 15px; /* Khoảng cách giữa các nút */
+  padding: 10px; /* Padding tổng thể cho khu vực chứa nút */
+  position: fixed; /* Để cố định vị trí */
+  bottom: 20px; /* Khoảng cách từ dưới */
+  left: 20px; /* Khoảng cách từ trái */
+  z-index: 9999; /* Đảm bảo nằm trên các nội dung khác */
 }
 
 .message-button {
-  background-color: #000000; /* Dark background */
-  color: white; /* Text color */
-  border: none; /* No borders */
-  border-radius: 50%; /* Circular buttons */
-  width: 60px; /* Button width */
-  height: 60px; /* Button height */
-  font-size: 24px; /* Icon font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+  display: flex; /* Căn chỉnh nội dung */
+  align-items: center; /* Căn giữa dọc */
+  justify-content: center; /* Căn giữa ngang */
+  width: 50px; /* Chiều rộng cố định */
+  height: 50px; /* Chiều cao cố định */
+  border-radius: 50%; /* Giảm góc thành vòng tròn */
+  border: none; /* Bỏ đường viền */
+  cursor: pointer; /* Đổi con trỏ khi hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng */
 }
 
-.message-button:hover {
-  background-color: #d9232d; /* Red background on hover */
-  transform: scale(1.1); /* Button slightly grows when hovered */
+.chat-button {
+  background-color: #4CAF50; /* Màu nền cho nút chat */
+  color: white; /* Màu biểu tượng */
 }
 
 .zalo-button img {
-  width: 30px; /* Smaller size for Zalo logo */
-  height: 30px;
-  object-fit: contain; /* Preserve aspect ratio */
+  width: 100%; /* Chiều rộng của hình ảnh 100% để vừa khít */
+  border-radius: 50%; /* Giảm góc thành vòng tròn */
 }
 
-/* Optional: Adjust icon size for better consistency */
-.fas, .fab {
-  font-size: 26px; /* Slightly larger icons */
+.facebook-button {
+  background-color: #3b5998; /* Màu nền cho nút Facebook */
+  color: white; /* Màu biểu tượng */
+}
+
+.message-button:hover {
+  transform: scale(1.1); /* Phóng to nút khi hover */
+}
+
+.message-button:focus {
+  outline: none; /* Bỏ outline khi nút được chọn */
 }

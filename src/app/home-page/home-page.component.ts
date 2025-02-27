@@ -1,14 +1,16 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { getProducts, ProductState } from '../selectors/product.selector';
-import { productAction } from '../actions/product.action';
+import { getCategory, getProducts, ProductState } from '../selectors/product.selector';
+import { getCategoryAction, productAction } from '../actions/product.action';
 import { ProductResponseModel } from '../model/product-response.model';
 import { ProductModel } from '../model/product.model';
 import { environment } from 'src/environments/environment';
 import { SwiperService } from '../service/swiper.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { CategoryModel } from '../model/cate.model';
+import { ValidationUtil } from '../common/util/validation.util';
 
 declare var initSlider: any;  // Khai báo jQuery
 
@@ -26,7 +28,10 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
   len = 8;
   loading = false; // Trạng thái đang tải
   apiUrl = environment.apiUrl;
-  total = 0
+  total = 0;
+    cates : CategoryModel []  = [];
+    cates$ = new Observable<CategoryModel[]>();
+    cateActive: CategoryModel = {} as CategoryModel;
 
   public swiperConfig = {
     slidesPerView: 1,
@@ -62,6 +67,7 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
     , private _swiperService: SwiperService ,
      private router: Router) {
     this.items$ = this.productStore.select(getProducts);
+        this.cates$ = this.productStore.select(getCategory);
   }
   ngOnInit(): void {
     setTimeout(() => {
@@ -69,6 +75,7 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
       this._swiperService.createSwiper('reviewSwiperAB', this.swiperConfig);
     }, 500);
     this.loadProduct();
+     this.productStore.dispatch(getCategoryAction());
     this.items$.subscribe((res) => {
       if (res && res.products.length) {
         this.items = res.products
@@ -76,6 +83,12 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
         this.total = res.totalCount;
       }
     });
+
+    this.cates$.subscribe(res =>{
+      if(ValidationUtil.isNotNullAndNotEmpty(res)){
+        this.cates = res;
+      }
+    })
   }
 
   ngAfterViewInit(): void {

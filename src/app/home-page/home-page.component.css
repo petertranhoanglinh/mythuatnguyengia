@@ -22,9 +22,35 @@
     transform: scale(1.05); /* Scale effect */
   }
 
-  h3{
-    color: #d9232d !important;
-  }
+
+
+  h3 {
+    font-size: 3.5rem; /* Tăng kích thước chữ nếu bạn muốn lớn hơn */
+    color: #333; /* Màu sắc chữ đậm hơn để nổi bật */
+    text-align: left; /* Căn trái */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    border-bottom: 2px solid #d9232d; /* Đường viền dưới màu đỏ */
+    padding-bottom: 10px; /* Khoảng cách giữa tiêu đề và đường viền */
+    font-family: 'Arial', sans-serif; /* Chọn font chữ dễ đọc */
+}
+
+h3:hover {
+    color: #d9232d; /* Màu sắc thay đổi khi di chuột qua */
+    transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+}
+
+/* Optional: Đưa vào phần tiêu đề của section */
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.section-title span {
+    font-size: 1.25rem;
+    color: #555;
+}
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
@@ -42,21 +68,3 @@
       width: 100%; /* Full-width buttons on small screens */
     }
   }
-
-
-
-  /* Add this to your CSS file or in a <style> tag */
-#hero {
-  max-height: 600px; /* Adjust this value as needed */
-  overflow: hidden;   /* Hide any overflowing content */
-}
-
-#hero-carousel .carousel-item img {
-  max-height: 600px; /* This should match or be less than the carousel's max-height */
-  object-fit: cover;  /* Make sure the image covers the area */
-  width: 100%;
-}
-
-.carousel-container {
-  padding: 20px; /* Adjust the padding to fit within the new height */
-}
