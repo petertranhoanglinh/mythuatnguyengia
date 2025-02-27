@@ -1,86 +1,63 @@
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.video-item {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .video-container {
-  overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .thumbnail-wrapper {
-  position: relative; /* Để định vị overlay */
-  width: 100%; /* Đảm bảo thumbnail chiếm toàn bộ chiều rộng của container */
-  height: 200px; /* Đặt chiều cao cố định cho thumbnail */
-  display: flex;
-  justify-content: center; /* Căn giữa nội dung */
-  align-items: center; /* Căn giữa nội dung theo chiều dọc */
+  position: relative;
+  cursor: pointer;
 }
 
 .thumbnail-wrapper img {
-  width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của thumbnail */
-  height: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều cao của thumbnail */
-  object-fit: cover; /* Giữ tỷ lệ khung hình và cắt bớt hình ảnh nếu cần */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .play-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.play-overlay:hover {
+  opacity: 1;
+}
+
+.video-wrapper iframe {
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5); /* Một màu nền mờ */
-  opacity: 0; /* Ẩn overlay mặc định */
-  transition: opacity 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+  height: 400px;
 }
-
-.thumbnail-wrapper:hover .play-overlay {
-  opacity: 1; /* Hiện overlay khi di chuột qua thumbnail */
-}
-
 h3 {
-  font-size: 1.5rem; /* Tăng kích thước chữ nếu bạn muốn lớn hơn */
-  color: #000; /* Màu sắc chữ đậm hơn để nổi bật */
-  text-align: left; /* Căn trái */
-  margin-bottom: 40px; /* Khoảng cách dưới tiêu đề */
-  border-bottom: 3px solid #000; /* Đường viền dưới màu đỏ */
-  padding-bottom: 10px; /* Khoảng cách giữa tiêu đề và đường viền */
-  font-family: 'Arial', sans-serif; /* Chọn font chữ dễ đọc */
+  font-size: 1.5rem;
+  color: #000;
+  text-align: left;
+  margin-bottom: 40px;
+  border-bottom: 3px solid #000;
+  padding-bottom: 10px;
+  font-family: 'Arial', sans-serif;
   font-weight: bold;
 }
 
 h3:hover {
-  color: #d9232d; /* Màu sắc thay đổi khi di chuột qua */
-  transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
-}
-
-
-.video-wrapper {
-  position: relative; /* Để định vị video tuyệt đối */
-  width: 100%; /* Đảm bảo video chiếm toàn bộ chiều rộng */
-  height: 200px; /* Bằng với chiều cao của thumbnail */
-}
-
-.video-wrapper iframe {
-  position: absolute; /* Để định vị iframe theo vùng chứa */
-  top: 0;
-  left: 0;
-  width: 100%; /* Đảm bảo video chiếm toàn bộ chiều rộng */
-  height: 100%; /* Đảm bảo video chiếm toàn bộ chiều cao */
-  border: none; /* Xóa viền */
-  object-fit: cover; /* Giữ nguyên tỷ lệ khung hình và cắt nếu cần */
-}
-h3:hover {
-  color: #d9232d; /* Màu sắc thay đổi khi di chuột qua */
-  transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
-}
-
-/* Optional: Đưa vào phần tiêu đề của section */
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-}
-
-.section-title span {
-  font-size: 1.25rem;
-  color: #555;
+  color: #d9232d;
+  transition: color 0.3s ease;
 }

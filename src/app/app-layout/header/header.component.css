@@ -1,15 +1,44 @@
-/* Áp dụng cho màn hình có chiều rộng từ 992px trở lên (PC) */
-/* @media (min-width: 992px) {
-  #navmenu ul li a {
-    font-size: 18px;
-    font-weight: 500;
-  }
+/* Header */
+.header {
+  background-color: black;
+  color: white;
+  padding: 15px 0;
+}
 
-  #navmenu ul li.dropdown ul li a {
-    font-size: 16px;
-  }
+.navmenu a {
+  font-size: 1.1rem;
+}
 
-  #navmenu ul li.dropdown ul li.dropdown ul li a {
-    font-size: 14px;
-  }
-} */
+/* Logo */
+.logo img {
+  max-height: 90px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover img {
+  transform: scale(1.1);
+}
+
+
+.navmenu ul li.active > a {
+  color: red; /* Màu đỏ khi active */
+}
+
+
+.navmenu ul li.dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: black;
+  color: white;
+  min-width: 200px;
+  display: none;
+  flex-direction: column;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+}
+
+
+
+

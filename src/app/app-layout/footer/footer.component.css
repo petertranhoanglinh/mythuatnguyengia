@@ -1,0 +1,48 @@
+.footer {
+  background-color: #000; /* Nền đen */
+  color: #fff; /* Chữ trắng */
+  padding: 40px 0;
+}
+
+.company-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.contact-link {
+  color: #ffd700; /* Màu vàng nhấn */
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ul.list-unstyled li {
+  margin-bottom: 8px;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 20px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #ffd700;
+}

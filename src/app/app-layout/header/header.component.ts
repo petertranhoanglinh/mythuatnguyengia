@@ -230,11 +230,13 @@ closeMobileMenu() {
 toggleMenu(menuItem: HTMLLIElement , menu: Menu): void {
 
   this.onMenuClick(menu);
-  if (menuItem.classList.contains('open')) {
-    this.renderer.removeClass(menuItem, 'open');
-  } else {
-    this.renderer.addClass(menuItem, 'open');
-  }
+  // if (menuItem.classList.contains('open')) {
+  //   this.renderer.removeClass(menuItem, 'open');
+  // } else {
+  //   this.renderer.addClass(menuItem, 'open');
+  // }
+  const navMenu = document.getElementById('navmenu');
+  navMenu?.classList.toggle('show');
 }
 
 
