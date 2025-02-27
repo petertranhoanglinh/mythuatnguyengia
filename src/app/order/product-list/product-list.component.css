@@ -19,9 +19,8 @@
   transform: translateX(5px);
 }
 
-.list-group-item.active {
-  background-color: #d9232d;
-  border-color: #d9232d;
+.active {
+  color: #d9232d !important;
 }
 
 .search-box {
@@ -112,3 +111,8 @@
 h3{
   color: #d9232d !important;
 }
+.nav-link{
+  color: #000;
+}
+
+

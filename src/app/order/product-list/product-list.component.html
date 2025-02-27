@@ -1,23 +1,28 @@
-<div class="container mt-5 mb-5">
+<div class="container mt-5">
   <div class="row">
       <div class="col-md-3">
           <div class="categories-sidebar">
               <h3 class="mb-4 fw-bold text-primary">Danh Mục Tranh Vẽ Tường</h3>
-              <div class="list-group">
-                  <button (click)="search('')" class="list-group-item list-group-item-action" [ngClass]="activeCate == '' ? 'active' : ''">
-                      <i class="bi bi-brush me-2"></i>Tất cả
-                  </button>
-                  <ng-container *ngFor="let item of cates">
-                      <button class="list-group-item list-group-item-action" (click)="search(item.id)"
-                          [ngClass]="activeCate == item.id ? 'active' : ''">
-                          <i class="bi bi-brush me-2"></i>{{item.categoryName}}
+              <!-- Danh sách danh mục sẽ được định dạng như menu ở đây -->
+              <ul class="nav nav-tabs flex-column mb-4" role="tablist">
+                  <li class="nav-item">
+                      <button (click)="search('')" class="nav-link" [ngClass]="activeCate == '' ? 'active' : ''">
+                          <i class="bi bi-brush me-2"></i>Tất cả
                       </button>
+                  </li>
+                  <ng-container *ngFor="let item of cates">
+                      <li class="nav-item">
+                          <button class="nav-link" (click)="search(item.id)"
+                              [ngClass]="activeCate == item.id ? 'active' : ''">
+                              <i class="bi bi-brush me-2"></i>{{item.categoryName}}
+                          </button>
+                      </li>
                   </ng-container>
-              </div>
+              </ul>
           </div>
       </div>
       <div class="col-md-9">
-          <div class="search-box">
+          <div class="search-box mb-4">
               <div class="input-group">
                   <input
                       type="text"
@@ -51,7 +56,7 @@
                   </div>
               </ng-container>
           </div>
-          <app-paging class="mb-2" [isChangePageSize]="false"  (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
+          <app-paging class="mb-2" [isChangePageSize]="false" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
       </div>
   </div>
 </div>

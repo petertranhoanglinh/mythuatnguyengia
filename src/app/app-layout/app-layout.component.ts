@@ -32,6 +32,8 @@ export class AppLayoutComponent implements OnInit {
     //       }
     //   }
     // });
+    window.scrollTo(0, 0);
+
   }
 
 
