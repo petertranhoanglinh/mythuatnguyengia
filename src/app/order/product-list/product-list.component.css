@@ -1,33 +1,35 @@
-.categories-sidebar {
+/* Căn chỉnh danh mục lên trên */
+.categories-tabs {
   background: #f8f9fa;
-  padding: 25px;
+  padding: 15px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
 }
 
-.list-group-item {
-  border: none;
-  padding: 12px 20px;
-  margin-bottom: 8px;
-  border-radius: 8px !important;
-  transition: all 0.3s ease;
+.categories-tabs .nav-link {
+  color: #000;
   font-weight: 500;
+  border-radius: 8px;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
 }
 
-.list-group-item:hover {
+.categories-tabs .nav-link:hover {
   background-color: #e9ecef;
-  transform: translateX(5px);
 }
 
-.active {
-  color: #d9232d !important;
+.categories-tabs .nav-link.active {
+  background-color: #d9232d;
+  color: #fff !important;
 }
 
+/* Ô tìm kiếm */
 .search-box {
   background: white;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   margin-bottom: 30px;
 }
 
@@ -58,6 +60,7 @@
   background-color: #f8f9fa;
 }
 
+/* Card sản phẩm */
 .card {
   border: none;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -67,7 +70,7 @@
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
 .card-img-top {
@@ -98,21 +101,7 @@
 }
 
 @media (max-width: 768px) {
-  .categories-sidebar {
-      margin-bottom: 20px;
-  }
-
   .display-6 {
       font-size: 1.5rem;
   }
 }
-
-
-h3{
-  color: #d9232d !important;
-}
-.nav-link{
-  color: #000;
-}
-
-
