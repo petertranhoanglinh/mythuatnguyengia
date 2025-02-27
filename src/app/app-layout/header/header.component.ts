@@ -46,6 +46,10 @@ export class HeaderComponent implements OnInit {
       route:'/blog/blogs',
     },
     {
+      label:'Báo Giá',
+      route:'/about/bao-gia',
+    },
+    {
       label:'Liên Hệ',
       route:'/about/contact',
     },

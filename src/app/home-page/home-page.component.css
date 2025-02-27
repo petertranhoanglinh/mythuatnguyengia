@@ -1,7 +1,6 @@
 .hero .overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,37 +9,37 @@
   }
 
   .btn {
-    border-radius: 20px; /* Rounded buttons */
+    border-radius: 20px;
   }
 
   .card {
-    border: none; /* Remove card border */
-    transition: transform 0.2s; /* Animation on hover */
+    border: none;
+    transition: transform 0.2s;
   }
 
   .card:hover {
-    transform: scale(1.05); /* Scale effect */
+    transform: scale(1.05);
   }
 
 
 
   h3 {
-    font-size: 5rem; /* Tăng kích thước chữ nếu bạn muốn lớn hơn */
-    color: #000; /* Màu sắc chữ đậm hơn để nổi bật */
-    text-align: left; /* Căn trái */
-    margin-bottom: 40px; /* Khoảng cách dưới tiêu đề */
-    border-bottom: 3px solid #d9232d; /* Đường viền dưới màu đỏ */
-    padding-bottom: 10px; /* Khoảng cách giữa tiêu đề và đường viền */
-    font-family: 'Arial', sans-serif; /* Chọn font chữ dễ đọc */
+    font-size: 1.5rem;
+    color: #000;
+    text-align: left;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #000;
+    padding-bottom: 10px;
+    font-family: 'Arial', sans-serif;
     font-weight: bold;
 }
 
 h3:hover {
-    color: #d9232d; /* Màu sắc thay đổi khi di chuột qua */
-    transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+    color: #d9232d;
+    transition: color 0.3s ease;
 }
 
-/* Optional: Đưa vào phần tiêu đề của section */
+
 .section-title {
     display: flex;
     justify-content: space-between;
@@ -52,20 +51,39 @@ h3:hover {
     font-size: 1.25rem;
     color: #555;
 }
-
-  /* Responsive adjustments */
   @media (max-width: 768px) {
     .display-4 {
-      font-size: 1.5rem; /* Adjust heading size */
+      font-size: 1.5rem;
     }
 
     .lead {
-      font-size: 1rem; /* Adjust paragraph size */
+      font-size: 1rem;
     }
   }
 
   @media (max-width: 576px) {
     .btn {
-      width: 100%; /* Full-width buttons on small screens */
+      width: 100%; 
     }
   }
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.product-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    background: #fff;
+}
+.product-name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.product-price {
+    color: #d9534f;
+    font-size: 18px;
+    font-weight: bold;
+}

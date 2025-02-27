@@ -36,11 +36,11 @@
 }
 
 h3 {
-  font-size: 5rem; /* Tăng kích thước chữ nếu bạn muốn lớn hơn */
+  font-size: 1.5rem; /* Tăng kích thước chữ nếu bạn muốn lớn hơn */
   color: #000; /* Màu sắc chữ đậm hơn để nổi bật */
   text-align: left; /* Căn trái */
   margin-bottom: 40px; /* Khoảng cách dưới tiêu đề */
-  border-bottom: 3px solid #d9232d; /* Đường viền dưới màu đỏ */
+  border-bottom: 3px solid #000; /* Đường viền dưới màu đỏ */
   padding-bottom: 10px; /* Khoảng cách giữa tiêu đề và đường viền */
   font-family: 'Arial', sans-serif; /* Chọn font chữ dễ đọc */
   font-weight: bold;

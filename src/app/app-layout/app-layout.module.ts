@@ -26,6 +26,7 @@ import { WeddingComponent } from '../wedding/wedding.component';
 import { PageHeadingComponent } from './page-heading/page-heading.component';
 import { messageFeatureKey, messageReducer } from '../reducers/message.reducer';
 import { MessageEffect } from '../effects/message.effect';
+import { PipeModule } from '../pipe/pipe.module';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -48,6 +49,7 @@ import { MessageEffect } from '../effects/message.effect';
     ReactiveFormsModule,
     NgChartsModule,
     QRCodeModule,
+    PipeModule,
     NgxLoadingModule.forRoot({fullScreenBackdrop: true}),
     StoreModule.forFeature(overlayLoadingFeatureKey, overlayLoadingReducer),
     StoreModule.forFeature(headerFeatureKey, headerReducer),

@@ -1,12 +1,9 @@
-<!-- Hero Section -->
 <section id="hero" class="hero section dark-background">
   <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="1000">
     <div class="carousel-item active">
       <img src="../../../assets/img/hero-carousel/hero-carousel-1.jpg" alt="Tranh Vẽ Tường Nguyễn Gia"
         class="d-block w-100">
       <div class="carousel-container text-center">
-
-        <!-- <h2 class="display-4">Khám Phá Nghệ Thuật Vẽ Tường Tại Nguyễn Gia</h2> -->
         <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
           <a href="#contact" class="btn btn-primary btn-lg">Liên Hệ 0949 315 809</a>
           <a href="#quote" class="btn btn-success btn-lg">Bảng Báo Giá</a>
@@ -17,8 +14,6 @@
       <img src="../../../assets/img/hero-carousel/hero-carousel-2.jpg" alt="Tranh Vẽ Tường Nguyễn Gia"
         class="d-block w-100">
       <div class="carousel-container text-center">
-
-        <!-- <h2 class="display-4">Khám Phá Nghệ Thuật Vẽ Tường Tại Nguyễn Gia</h2> -->
         <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
           <a href="#contact" class="btn btn-primary btn-lg">Liên Hệ 0949 315 809</a>
           <a href="#quote" class="btn btn-success btn-lg">Bảng Báo Giá</a>
@@ -30,8 +25,6 @@
       <img src="../../../assets/img/hero-carousel/hero-carousel-3.jpg" alt="Tranh Vẽ Tường Nguyễn Gia"
         class="d-block w-100">
       <div class="carousel-container text-center">
-
-        <!-- <h2 class="display-4">Khám Phá Nghệ Thuật Vẽ Tường Tại Nguyễn Gia</h2> -->
         <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
           <a href="#contact" class="btn btn-primary btn-lg">Liên Hệ 0949 315 809</a>
           <a href="#quote" class="btn btn-success btn-lg">Bảng Báo Giá</a>
@@ -47,49 +40,78 @@
       <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
     </a>
     <ol class="carousel-indicators"></ol>
-    <!-- Additional carousel items go here -->
   </div>
 </section>
 
-<!-- Services Section -->
-<div class="container mt-5" data-aos="fade-up">
-  <h3 class="section-title"> <span>Dịch Vụ Vẽ Tranh Tường tại Mỹ Thuật Nguyễn Gia</span></h3>
-  <div class="row mb-4" data-aos-delay="100">
-    <ng-container *ngFor="let item of items">
-      <div class="col-6 col-md-3 mb-3">
-        <div class="card" style="cursor: pointer;" [routerLink]="['/shopping/detail', item.id]">
-          <img src="{{item.img}}"  class="card-img-top" style="height: 200px; object-fit: cover;" alt="Dịch Vụ 1">
-          <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
+<div class="container mt-5">
+  <h3 class="section-title">Sản Phẩm Nổi Bật</h3>
+  <div class="row">
+      <div class="col-md-3">
+          <div class="product-card">
+              <img src="https://vietcanvas.net/cdn/shop/products/tranh-hoa-sen-trang-VZ23210011589_533x.jpg?v=1603356451" alt="Tranh Hoa Sen Trắng">
+              <p class="product-name">Tranh Hoa Sen Trắng - VZ232</p>
+              <p class="product-price">1.620.000đ</p>
           </div>
-        </div>
       </div>
-    </ng-container>
-
-  </div>
-  <app-paging class="mb-2" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
-</div>
-
-<div class="container mt-5" data-aos="fade-up">
-  <h3 class="section-title"> <span>Các loại dịch vụ vẽ tranh hiện có</span></h3>
-  <div class="row mb-4" data-aos-delay="200">
-    <ng-container *ngFor="let item of cates">
-      <div class="col-12 mb-4">
-        <div class="card d-flex flex-row" style="cursor: pointer;" [routerLink]="['/shopping/detail', item.id]">
-          <img src="{{item.imageUrl}}" class="card-img-left" style="width: 200px; height: 200px; object-fit: cover;" alt="{{item.categoryName}}">
-          <div class="card-body">
-            <h5 class="card-title">{{item.categoryName}}</h5>
-            <p class="card-text" [innerHTML]="item.description.length > 100 ? item.description.slice(0, 100) + '...' : item.description"></p>
+      <div class="col-md-3">
+          <div class="product-card">
+              <img src="https://vietcanvas.net/cdn/shop/products/bo_3_tranh_dan_ca_koi_VW299_10488056-1_533x.jpg?v=1586843653" alt="Bộ 3 Tranh Đàn Cá Koi">
+              <p class="product-name">Bộ 3 Tranh Đàn Cá Koi Bơi Lội - VW299</p>
+              <p class="product-price">Từ 1.620.000đ</p>
           </div>
-        </div>
       </div>
-    </ng-container>
+      <div class="col-md-3">
+          <div class="product-card">
+              <img src="https://vietcanvas.net/cdn/shop/products/tranh-net-mau-truu-tuong-VQ077_533x.jpg?v=1672999495" alt="Tranh Sơn Dầu Vệt Nắng">
+              <p class="product-name">Tranh Sơn Dầu Vệt Nắng - SH119</p>
+              <p class="product-price">7.900.000đ</p>
+          </div>
+      </div>
+      <div class="col-md-3">
+          <div class="product-card">
+              <img src="https://vietcanvas.net/cdn/shop/products/tranh-son-dau-vet-nang_533x.webp?v=1672998620" alt="Tranh Nét Màu Trừu Tượng">
+              <p class="product-name">Tranh Nét Màu Trừu Tượng - VQ077</p>
+              <p class="product-price">Từ 1.200.000đ</p>
+          </div>
+      </div>
   </div>
 </div>
 
-<!-- Customer Reviews Section -->
+<div class="container mt-5"  data-aos="fade-up">
+  <h3 class="section-title">Dịch Vụ Vẽ Tranh Tường tại Mỹ Thuật Nguyễn Gia</h3>
+  <div class="row">
+      <div class="col-md-3 mt-2" *ngFor="let item of items">
+          <div class="product-card">
+              <img src="{{item.img}}" alt="Tranh Hoa Sen Trắng">
+              <p class="product-name">{{item.name}}</p>
+              <p class="product-price">{{item.price | round}} đ</p>
+          </div>
+      </div>
+  </div>
+  <app-paging class="mb-2 mt-4" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
+</div>
+
+<div class="container mt-5">
+  <h3 class="text-start fw-bold">Bộ Sưu Tập</h3>
+  <div class="row row-cols-2 row-cols-md-5 g-4">
+    <div class="col" *ngFor="let item of cates">
+      <div class="card border-0 shadow-sm category-card" [routerLink]="['/category', item.id]">
+        <img [src]="item.imageUrl" class="card-img-top" alt="{{ item.categoryName }}">
+        <div class="card-body text-center">
+          <h6 class="fw-bold">{{ item.categoryName }} <span>&rarr;</span></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-warning fw-bold px-4">Xem thêm</button>
+  </div>
+</div>
+
+
 <div class="container mt-5" data-aos="fade-up">
-  <h3 class="section-title"> <span>Phản hồi từ khách hàng</span></h3>
+  <h3 class="section-title"> Phản hồi từ khách hàng</h3>
   <div class="swiper reviewSwiperAB">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
@@ -120,10 +142,7 @@
             alt="Khách Hàng 1">
         </div>
       </div>
-
-      <!-- Repeat for other reviews -->
     </div>
   </div>
-
 </div>
  <app-video></app-video>

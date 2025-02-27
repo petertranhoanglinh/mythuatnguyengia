@@ -1,0 +1,59 @@
+
+.page-title {
+  text-align: left;
+  color: #333;
+}
+
+.subtitle {
+  text-align: left;
+  color: #555;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.price-table th, .price-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.price-table th {
+  background-color: #f2f2f2;
+}
+
+.special-offer {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #f0f8ff;
+  border: 1px solid #d9232d;
+  border-radius: 8px;
+}
+
+.special-offer h2 {
+  color: #d9232d; /* Màu xanh cho tiêu đề */
+}
+
+ul {
+  list-style-type: none; /* Không hiển thị dấu chấm */
+  padding: 0;
+}
+
+a {
+  color: #d9232d; /* Màu xanh cho liên kết */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; /* Gạch dưới khi hover */
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .price-table, .special-offer {
+      font-size: 14px; /* Giảm kích thước font cho điện thoại */
+  }
+}
