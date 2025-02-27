@@ -1,12 +1,14 @@
 /* Header */
 .header {
   background-color: black;
-  color: white;
+  color: #ffffff; /* Trắng tinh khiết */
   padding: 15px 0;
 }
 
 .navmenu a {
   font-size: 1.1rem;
+  color: #ffffff; /* Đảm bảo các liên kết cũng sáng */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3); /* Tạo hiệu ứng sáng */
 }
 
 /* Logo */
