@@ -8,7 +8,7 @@
         <ng-container *ngFor="let lv0 of menus">
           <li *ngIf="lv0.items == null" (click)="onMenuClick(lv0)"><a routerLink="{{lv0.route}}">{{lv0.label}}</a></li>
           <li *ngIf="lv0.items != null" class="dropdown">
-           <a><span>{{lv0.label}}</span>  <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+           <a style="color: #ffff !important; "><span>{{lv0.label}}</span>  <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul >
               <ng-container *ngFor="let lv1 of lv0.items">
                 <li *ngIf="lv1.items == null"><a routerLink="{{lv1.route}}" (click)="onMenuClick(lv1)">{{lv1.label}}</a></li>

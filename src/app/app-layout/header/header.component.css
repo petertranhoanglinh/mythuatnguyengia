@@ -11,6 +11,10 @@
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3); /* Tạo hiệu ứng sáng */
 }
 
+.dropdown  a {
+  color: black;
+}
+
 /* Logo */
 .logo img {
   max-height: 90px;
@@ -26,20 +30,24 @@
   color: red; /* Màu đỏ khi active */
 }
 
+@media (max-width: 1199px) {
+  .navmenu li{
+    background-color: black;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3); /* Tạo hiệu ứng sáng */
 
-.navmenu ul li.dropdown ul {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: black;
-  color: white;
-  min-width: 200px;
-  display: none;
-  flex-direction: column;
-  padding: 10px 0;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+  }
+  .navmenu a {
+    font-size: 1rem;
+    color: #ffffff; /* Đảm bảo các liên kết cũng sáng */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3); /* Tạo hiệu ứng sáng */
+  }
+
+  .mobile-nav-toggle{
+    color: #ffffff; /* Trắng tinh khiết */
+  }
+
 }
+
 
 
 
