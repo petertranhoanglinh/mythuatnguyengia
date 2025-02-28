@@ -40,20 +40,28 @@
 
   <div class="row g-4">
     <ng-container *ngFor="let item of items">
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="card h-100 shadow-sm">
           <div class="position-relative overflow-hidden">
             <a [routerLink]="['/shopping/detail', item.id]" class="text-decoration-none">
-              <img src="{{item.img}}" alt="{{item.name}}" class="card-img-top">
+              <img src="{{ item.img }}" alt="{{ item.name }}" class="card-img-top">
             </a>
+            <span class="badge position-absolute top-0 start-0 bg-dark text-white p-2">{{ item.name }}</span>
           </div>
-          <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="product-price text-danger fw-bold">{{ item.price | setComma : '' }} đ</p>
           </div>
         </div>
       </div>
     </ng-container>
   </div>
 
-  <app-paging class="mb-2" [isChangePageSize]="false" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
+  <app-paging-custom [length]="total"
+            [pageSize]="len"
+            [pageIndex]="page"
+            (pageChange)="onPageChange($event)">
+  </app-paging-custom>
+
+  <!-- <app-paging class="mb-2" [isChangePageSize]="false" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging> -->
 </div>

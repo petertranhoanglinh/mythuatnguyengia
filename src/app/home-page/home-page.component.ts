@@ -144,4 +144,9 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
       this.len = page.pageSize;
     this.loadProduct()
   }
+
+  onPageChange(newPage: number) {
+    this.page = newPage;
+    this.loadProduct()
+  }
 }

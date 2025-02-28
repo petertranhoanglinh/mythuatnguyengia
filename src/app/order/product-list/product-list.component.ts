@@ -56,7 +56,7 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
 
 
   page = 0;
-  len  = 12;
+  len  = 8;
   total = 0;
   countRewiew = 0;
   isShowKey =  false;
@@ -138,7 +138,11 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
     this.loadProduct();
     this.isShowKey = true;
   }
-
+  onPageChange(newPage: number) {
+    this.page = newPage;
+    this.loadProduct();
+    // Gọi API để lấy dữ liệu trang mới
+  }
 
 
 }

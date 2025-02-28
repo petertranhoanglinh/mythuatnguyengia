@@ -69,7 +69,12 @@
           </div>
       </div>
   </div>
-  <app-paging class="mb-2 mt-4" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
+  <app-paging-custom [length]="total"
+  [pageSize]="len"
+  [pageIndex]="page"
+  (pageChange)="onPageChange($event)">
+</app-paging-custom>
+  <!-- <app-paging class="mb-2 mt-4" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging> -->
 </div>
 
 <div class="container mt-5">
