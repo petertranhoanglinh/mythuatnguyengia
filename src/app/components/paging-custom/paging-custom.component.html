@@ -1,0 +1,11 @@
+<nav class="pagination-container" *ngIf="length != 0">
+  <button (click)="goToPage(pageIndex - 1)" [disabled]="pageIndex === 0">«</button>
+
+  <button *ngFor="let page of pages"
+          (click)="goToPage(page)"
+          [class.active]="page === pageIndex">
+    {{ page + 1 }}
+  </button>
+
+  <button (click)="goToPage(pageIndex + 1)" [disabled]="pageIndex === totalPages - 1">»</button>
+</nav>

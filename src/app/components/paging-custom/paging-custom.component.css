@@ -1,0 +1,40 @@
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  background-color: #fff; /* Nền trắng */
+  border-radius: 8px;
+}
+
+button {
+  padding: 8px 14px;
+  border: 1px solid #000;
+  background: transparent;
+  color: #000; /* Chữ màu đen */
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+button.active {
+  background: #000; /* Nền đen */
+  color: #fff; /* Chữ màu trắng */
+  font-weight: bold;
+  border-color: #000;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 600px) {
+  button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}

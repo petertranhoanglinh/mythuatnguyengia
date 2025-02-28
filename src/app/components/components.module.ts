@@ -15,6 +15,7 @@ import { CkContentComponent } from './ck-content/ck-content.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule } from '@angular/forms';
 import { VideoComponent } from './video/video.component';
+import { PagingCustomComponent } from './paging-custom/paging-custom.component';
 @NgModule({
   declarations: [
     TableTemplateComponent,
@@ -27,7 +28,8 @@ import { VideoComponent } from './video/video.component';
     SliderComponent,
     MessageButtonComponent,
     CkContentComponent,
-    VideoComponent
+    VideoComponent,
+    PagingCustomComponent
 
 
   ],
@@ -49,7 +51,8 @@ import { VideoComponent } from './video/video.component';
     SliderComponent,
     MessageButtonComponent,
     CkContentComponent,
-    VideoComponent
+    VideoComponent,
+    PagingCustomComponent
   ],
 })
 export class ComponentsModule { }
