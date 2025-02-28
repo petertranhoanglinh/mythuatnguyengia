@@ -59,6 +59,7 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   len  = 12;
   total = 0;
   countRewiew = 0;
+  isShowKey =  false;
   apiUrl = environment.apiUrl;
   constructor(private productStore : Store<ProductState> ,
     private overlayLoadingStore: Store<OverlayLoadingState>,
@@ -122,12 +123,20 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   }
 
   search(id:string){
+    this.key = '';
     this.activeCate = id;
     this.loadProduct();
+    this.isShowKey = false;
 
     if(ValidationUtil.isNotNullAndNotEmpty(id)){
       this.cateActive = this.cates.find(cate => cate.id === id)!;
     }
+  }
+
+  searchBtn(){
+    this.activeCate = '';
+    this.loadProduct();
+    this.isShowKey = true;
   }
 
 

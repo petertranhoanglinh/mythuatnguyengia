@@ -1,14 +1,14 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
   <div class="container-fluid container-xl position-relative d-flex align-items-center">
     <a routerLink="/" class="logo d-flex align-items-center me-auto">
-      <img src="../../../assets/img/logo.png" alt="Logo" class="img-fluid" style="max-height: 60px; width: auto; object-fit: contain;">
+      <img src="../../../assets/img/logo.png" alt="Logo" class="img-fluid" style="max-height: 80px; width: auto; object-fit: contain;">
     </a>
     <nav id="navmenu" class="navmenu">
       <ul >
         <ng-container *ngFor="let lv0 of menus">
           <li *ngIf="lv0.items == null" (click)="onMenuClick(lv0)"><a routerLink="{{lv0.route}}">{{lv0.label}}</a></li>
           <li *ngIf="lv0.items != null" class="dropdown">
-           <a style="color: #ffff !important; "><span>{{lv0.label}}</span>  <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+           <a class="title"><span>{{lv0.label}}</span>  <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul >
               <ng-container *ngFor="let lv1 of lv0.items">
                 <li *ngIf="lv1.items == null"><a routerLink="{{lv1.route}}" (click)="onMenuClick(lv1)">{{lv1.label}}</a></li>

@@ -16,19 +16,22 @@
   </ul>
 
 
-  <div class="search-box mb-4"> 
+  <div class="search-box mb-4">
     <div class="input-group">
       <input
         type="text"
         class="form-control border-start-0"
         [(ngModel)]="key"
-        (keyup.enter)="search(this.activeCate)"
+        (keyup.enter)="searchBtn()"
+        (ngModelChange)="searchBtn()"
         placeholder="Tìm kiếm tranh vẽ...">
-      <span class="input-group-text bg-white border-end-0" (click)="search(this.activeCate)">
-        <i class="bi bi-search"></i>
-      </span>
     </div>
   </div>
+
+  <p *ngIf="key != '' && isShowKey">
+    <strong># Tìm kiếm với cụm từ "{{key}}" có {{total}} kết quả</strong>
+  </p>
+
 
   <h2 class="display-6 mb-4">Dịch Vụ {{activeCate == '' ? 'vẽ tranh' : cateActive.categoryName}}</h2>
   <p class="text-muted mb-4" *ngIf="activeCate !== '' && cateActive?.description">
