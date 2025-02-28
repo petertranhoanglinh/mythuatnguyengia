@@ -13,7 +13,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'top', // Luôn cuộn lên đầu khi chuyển trang
+      anchorScrolling: 'enabled' // Cho phép cuộn đến thẻ có id nếu có #id trên URL
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
