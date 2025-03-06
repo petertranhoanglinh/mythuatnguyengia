@@ -1,29 +1,15 @@
-<div class="container mt-5 mb-5" data-aos="fade-up">
-  <h3 class="section-title">Video của chúng tôi</h3>
-  <div class="video-list">
-    <div class="video-item" *ngFor="let video of videos">
-      <div class="card video-container">
-        <!-- Thumbnail -->
-        <div class="thumbnail-wrapper" *ngIf="!loadedVideos[video.id]" (click)="loadVideo(video.id)">
-          <img [src]="video.thumbnail" [alt]="video.title" class="card-img-top">
-          <div class="play-overlay">
-            <i class="bi bi-play-circle-fill"></i>
-          </div>
-        </div>
+<div class="video-container">
 
-        <!-- Video iframe -->
-        <div class="video-wrapper" *ngIf="loadedVideos[video.id]">
-          <iframe [src]="getVideoUrl(video.id) | safe"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-          </iframe>
-        </div>
+  <div class="video-side" *ngFor="let video of videos" (click)="playVideo(video.id)">
 
-        <div class="card-body">
-          <h5 class="card-title">{{ video.title }}</h5>
-        </div>
-      </div>
-    </div>
+  <img [src]="'https://img.youtube.com/vi/' + video.id + '/mqdefault.jpg'" class="img-fluid shadow">
+
   </div>
-</div>
+
+  <div class="video-main" *ngIf="!isVideoLoaded" >
+
+    <iframe width="100%" height="400" [src]="trustedUrl" frameborder="0" allowfullscreen class="rounded"></iframe>
+
+  </div>
+
+  </div>
