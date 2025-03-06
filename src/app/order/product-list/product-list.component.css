@@ -271,4 +271,7 @@
   .category-image {
       max-width: 150px; /* Hình ảnh nhỏ hơn trên màn hình mobile */
   }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột cho mobile */
+  }
 }

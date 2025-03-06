@@ -33,6 +33,13 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
     cates$ = new Observable<CategoryModel[]>();
     cateActive: CategoryModel = {} as CategoryModel;
 
+    feedbacks = [
+      { name: 'Nguyễn Văn A', comment: 'Dịch vụ rất tuyệt vời!', avatar: 'https://i.pravatar.cc/150?img=1' },
+      { name: 'Trần Thị B', comment: 'Sản phẩm chất lượng, sẽ mua lại.', avatar: 'https://i.pravatar.cc/150?img=2' },
+      { name: 'Lê Văn C', comment: 'Giao hàng nhanh chóng, đóng gói cẩn thận.', avatar: 'https://i.pravatar.cc/150?img=3' },
+      { name: 'Hoàng Minh D', comment: 'Tôi rất hài lòng với dịch vụ chăm sóc khách hàng.', avatar: 'https://i.pravatar.cc/150?img=4' }
+    ];
+
   public swiperConfig = {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -72,6 +79,26 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
   ngOnInit(): void {
     setTimeout(() => {
       initSlider() ,
+
+    this._swiperService.createSwiper('feedback-swiper', {
+      slidesPerView: 1, // Mặc định 1 feedback
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      grabCursor: true,
+      allowTouchMove: true,
+      breakpoints: {
+        480: { slidesPerView: 1, spaceBetween: 10 }, // Mobile nhỏ
+        768: { slidesPerView: 2, spaceBetween: 15 }, // Tablet
+        1024: { slidesPerView: 3, spaceBetween: 20 }, // Laptop
+      },
+    });
       this._swiperService.createSwiper('reviewSwiperAB', this.swiperConfig);
     }, 500);
     this.loadProduct();
@@ -93,6 +120,7 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
 
   ngAfterViewInit(): void {
     this.setupObserver();
+
     this._swiperService.createSwiper('reviewSwiperAB', this.swiperConfig);
   }
 

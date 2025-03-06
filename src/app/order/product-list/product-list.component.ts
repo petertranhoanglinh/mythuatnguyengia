@@ -91,7 +91,7 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   }
 
   loadProduct():void{
-    this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
+    // this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
     this.productStore.dispatch(productAction({
       params : {
          page:this.page,

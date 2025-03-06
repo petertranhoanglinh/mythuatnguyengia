@@ -1,11 +1,12 @@
-<nav class="pagination-container" *ngIf="length != 0">
-  <button (click)="goToPage(pageIndex - 1)" [disabled]="pageIndex === 0">«</button>
+<nav class="pagination-container" *ngIf="length !== 0">
+  <button class="page-btn prev" (click)="goToPage(pageIndex - 1)" [disabled]="pageIndex === 0">«</button>
 
   <button *ngFor="let page of pages"
           (click)="goToPage(page)"
-          [class.active]="page === pageIndex">
+          [class.active]="page === pageIndex"
+          class="page-btn">
     {{ page + 1 }}
   </button>
 
-  <button (click)="goToPage(pageIndex + 1)" [disabled]="pageIndex === totalPages - 1">»</button>
+  <button class="page-btn next" (click)="goToPage(pageIndex + 1)" [disabled]="pageIndex === totalPages - 1">»</button>
 </nav>

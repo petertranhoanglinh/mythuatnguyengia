@@ -123,43 +123,24 @@
   </div>
 </div>
 
+<div class="container my-5">
+  <h3 class="section-title">Khách hàng nói gì về chúng tôi?</h3>
 
-
-<div class="container mt-5" data-aos="fade-up">
-  <h3 class="section-title"> Phản hồi từ khách hàng</h3>
-  <div class="swiper reviewSwiperAB">
+  <!-- Swiper -->
+  <div class="swiper-container feedback-swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="card">
-          <img style="height: 400px; object-fit: cover;"
-            src="https://tranhtuong1989.com/wp-content/uploads/2024/01/87121ddf6d5ac6049f4b-1.jpg" class="card-img-top"
-            alt="Khách Hàng 1">
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="card">
-          <img style="height: 400px; object-fit: cover;"
-            src="https://tranhtuong1989.com/wp-content/uploads/2024/01/b370d19ea11b0a45530a-1.jpg" class="card-img-top"
-            alt="Khách Hàng 1">
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="card">
-          <img style="height: 400px; object-fit: cover;"
-            src="https://tranhtuong1989.com/wp-content/uploads/2024/01/3e1eb08ac00f6b51321e-1.jpg" class="card-img-top"
-            alt="Khách Hàng 1">
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="card">
-          <img style="height: 400px; object-fit: cover;"
-            src="https://tranhtuong1989.com/wp-content/uploads/2024/01/3e1eb08ac00f6b51321e-1.jpg" class="card-img-top"
-            alt="Khách Hàng 1">
-        </div>
+      <div class="swiper-slide feedback-card" *ngFor="let feedback of feedbacks">
+        <img [src]="feedback.avatar" alt="Avatar" class="avatar">
+        <p class="comment">"{{ feedback.comment }}"</p>
+        <h4 class="name">- {{ feedback.name }}</h4>
       </div>
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
   </div>
 </div>
+
 <div class="container mt-4">
   <h3 class="section-title"> Thư viện video</h3>
   <app-video></app-video>
