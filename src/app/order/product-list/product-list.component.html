@@ -1,67 +1,95 @@
-<div class="container mt-5">
-  <!-- Tabs danh mục -->
-  <ul class="nav nav-tabs mb-4" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a (click)="search('')" class="nav-link" [ngClass]="{'active': activeCate == ''}">
-        <i class="bi bi-grid me-2"></i> Tất cả
-      </a>
-    </li>
-    <ng-container *ngFor="let item of cates">
-      <li class="nav-item" role="presentation">
-        <a (click)="search(item.id)" class="nav-link" [ngClass]="{'active': activeCate == item.id}">
-          <i class="bi bi-grid me-2"></i> {{ item.categoryName }}
-        </a>
-      </li>
-    </ng-container>
-  </ul>
+<div class="container my-5">
+  <section class="section products">
+      <div class="section-content">
 
-
-  <div class="search-box mb-4">
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control border-start-0"
-        [(ngModel)]="key"
-        (keyup.enter)="searchBtn()"
-        (ngModelChange)="searchBtn()"
-        placeholder="Tìm kiếm tranh vẽ...">
-    </div>
-  </div>
-
-  <p *ngIf="key != '' && isShowKey">
-    <strong># Tìm kiếm với cụm từ "{{key}}" có {{total}} kết quả</strong>
-  </p>
-
-
-  <h2 class="display-6 mb-4">Dịch Vụ {{activeCate == '' ? 'vẽ tranh' : cateActive.categoryName}}</h2>
-  <p class="text-muted mb-4" *ngIf="activeCate !== '' && cateActive?.description">
-    {{ cateActive.description }}
-  </p>
-
-  <div class="row g-4">
-    <ng-container *ngFor="let item of items">
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card h-100 shadow-sm">
-          <div class="position-relative overflow-hidden">
-            <a [routerLink]="['/shopping/detail', item.id]" class="text-decoration-none">
-              <img src="{{ item.img }}" alt="{{ item.name }}" class="card-img-top">
-            </a>
-            <span class="badge position-absolute top-0 start-0 bg-dark text-white p-2">{{ item.name }}</span>
+          <!-- Category Tabs -->
+          <div class="category-tabs">
+              <a (click)="search('')"
+                 class="category-tab"
+                 [ngClass]="{'active': activeCate == ''}">
+                  <i class="fas fa-th me-2"></i> Tất cả
+              </a>
+              <ng-container *ngFor="let item of cates">
+                  <a (click)="search(item.id)"
+                     class="category-tab"
+                     [ngClass]="{'active': activeCate == item.id}">
+                      <i class="fas fa-th me-2"></i> {{ item.categoryName }}
+                  </a>
+              </ng-container>
           </div>
-          <div class="card-body text-center">
-            <h5 class="card-title">{{ item.name }}</h5>
-            <p class="product-price text-danger fw-bold">{{ item.price | setComma : '' }} đ</p>
+
+          <!-- Title với hình ảnh -->
+        <!-- Container chứa tiêu đề và hình ảnh -->
+        <div class="category-header text-center text-md-left d-flex flex-column flex-md-row align-items-center justify-content-center">
+          <!-- Hình ảnh danh mục -->
+          <img *ngIf="activeCate !== '' && cateActive?.imageUrl"
+              [src]="cateActive.imageUrl"
+              alt="{{cateActive.categoryName}}"
+              class="category-image mb-3 mb-md-0">
+
+          <!-- Nội dung văn bản -->
+          <div class="text-content text-center text-md-left">
+              <h2 class="title">{{activeCate == '' ? '' : cateActive.categoryName}}</h2>
+              <p class="lead mb-3" *ngIf="activeCate !== '' && cateActive?.description">
+                  {{ cateActive.description }}
+              </p>
           </div>
         </div>
+
+
+
+
+          <!-- Search Box -->
+          <div class="search-container">
+              <div class="search-box">
+                  <i class="fas fa-search search-icon"></i>
+                  <input type="text"
+                         class="search-input"
+                         [(ngModel)]="key"
+                         (keyup.enter)="searchBtn()"
+                         (ngModelChange)="searchBtn()"
+                         placeholder="Tìm kiếm tranh vẽ...">
+              </div>
+          </div>
+
+          <!-- Search Results -->
+          <div class="search-results" *ngIf="key != '' && isShowKey">
+              <p class="results-text">
+                  <i class="fas fa-search"></i>
+                  <strong>Tìm kiếm với cụm từ "{{key}}" có {{total}} kết quả</strong>
+              </p>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="products-grid">
+            <ng-container *ngFor="let item of items">
+                <div class="product-card">
+                    <div class="product-image">
+                        <a [routerLink]="['/shopping/detail', item.id]">
+                            <img [src]="item.img" [alt]="item.name">
+                            <div class="product-overlay">
+                                <span class="view-details">Xem chi tiết</span>
+                            </div>
+                        </a>
+                        <span class="product-label">{{ item.name }}</span>
+                        <span class="product-badge">Mới</span>
+                        <span class="product-badge">Bán chạy</span>
+                        <span class="product-badge">Giảm giá</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">{{ item.name }}</h3>
+                        <p class="product-price">{{ item.price | setComma : '' }} đ</p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+          <!-- Pagination -->
+          <app-paging-custom
+              [length]="total"
+              [pageSize]="len"
+              [pageIndex]="page"
+              (pageChange)="onPageChange($event)">
+          </app-paging-custom>
       </div>
-    </ng-container>
-  </div>
-
-  <app-paging-custom [length]="total"
-            [pageSize]="len"
-            [pageIndex]="page"
-            (pageChange)="onPageChange($event)">
-  </app-paging-custom>
-
-  <!-- <app-paging class="mb-2" [isChangePageSize]="false" (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging> -->
+  </section>
 </div>

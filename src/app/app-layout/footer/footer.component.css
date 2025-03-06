@@ -46,3 +46,26 @@ ul.list-unstyled li {
 .social-icon:hover {
   color: #ffd700;
 }
+.admin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9232d; /* Màu nền */
+  color: white; /* Màu chữ */
+  padding: 10px 15px; /* Khoảng cách cho nút */
+  border-radius: 5px; /* Bo tròn cạnh */
+  text-decoration: none; /* Bỏ gạch chân */
+  position: fixed; /* Đặt nút ở vị trí cố định */
+  left: 20px; /* Cách lề trái */
+  bottom: 20px; /* Cách lề dưới */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi */
+  z-index: 1000; /* Đảm bảo nút nằm ở trên cùng */
+}
+
+.admin-button:hover {
+  background-color: #c8202d; /* Màu khi di chuột vào */
+}
+
+.admin-button i {
+  margin-right: 5px; /* Khoảng cách giữa biểu tượng và chữ */
+}

@@ -1,11 +1,19 @@
 .video-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   padding: 20px 0;
 }
+
+.video-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
 .video-main {
   width: 60%;
   background: white;
@@ -13,18 +21,23 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .video-side {
   width: 15%;
   cursor: pointer;
   transition: transform 0.3s;
 }
+
 .video-side:hover {
   transform: scale(1.1);
 }
+
 .video-side img {
+  width: 100%;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
 @media (max-width: 992px) {
   .video-main {
     width: 80%;
@@ -33,6 +46,7 @@
     width: 20%;
   }
 }
+
 @media (max-width: 768px) {
   .video-main {
     width: 100%;

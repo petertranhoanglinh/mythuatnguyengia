@@ -49,10 +49,10 @@ export class HeaderComponent implements OnInit {
       label:'Báo Giá',
       route:'/about/bao-gia',
     },
-    {
-      label:'Liên Hệ',
-      route:'/about/contact',
-    },
+    // {
+    //   label:'Liên Hệ',
+    //   route:'/about/contact',
+    // },
   ];
   currentPath: string = '';
 

@@ -13,6 +13,8 @@ export class VideoComponent {
     { id: '3JZ_D3ELwOQ' },
     { id: '2Vv-BfVoq4g' },
     { id: 'L_jWHffIx5E' },
+    { id: 'kJQP7kiw5Fk' },
+    { id: 'kJQP7kiw5Fk' },
     { id: 'kJQP7kiw5Fk' }
   ];
   isVideoLoaded = false;
