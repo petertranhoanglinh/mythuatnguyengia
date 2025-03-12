@@ -12,7 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ComponentsModule } from './components/components.module';
 import { Interceptors } from './service/interceptors.service';
 import { overlayLoadingFeatureKey, overlayLoadingReducer } from './reducers/overlay-loading.reducer';
-
+import { Title } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { overlayLoadingFeatureKey, overlayLoadingReducer } from './reducers/over
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptors,
       multi: true
-    }
+    },
+    [Title]
   ],
   bootstrap: [AppComponent]
 })

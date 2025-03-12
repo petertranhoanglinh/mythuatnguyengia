@@ -55,6 +55,7 @@ export class HeaderComponent implements OnInit {
     // },
   ];
   currentPath: string = '';
+  activeParent:string = '';
 
 
 
@@ -162,6 +163,8 @@ export class HeaderComponent implements OnInit {
     return path.length ? path.join(' > ') : 'Not Found';
   }
   onMenuClick(menu: Menu): void {
+
+    this.activeParent = String(menu.route);
     if(ValidationUtil.isNotNullAndNotEmpty(menu.route)){
       this.closeMobileMenu();
       this.currentPath = this.findMenuPath(String(menu.route));
@@ -237,6 +240,12 @@ toggleMenu(menuItem: HTMLLIElement , menu: Menu): void {
   // }
   const navMenu = document.getElementById('navmenu');
   navMenu?.classList.toggle('show');
+}
+
+
+clickHome() {
+  this.activeParent = '';
+  this.router.navigateByUrl("/")
 }
 
 

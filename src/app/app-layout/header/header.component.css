@@ -32,9 +32,8 @@
   transform: scale(1.1);
 }
 
-
-.navmenu ul li.active > a {
-  color: red; /* Màu đỏ khi active */
+.active {
+  color: red !important; /* Màu đỏ khi active */
 }
 
 @media (max-width: 1199px) {
