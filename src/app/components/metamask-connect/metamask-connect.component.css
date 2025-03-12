@@ -1,0 +1,38 @@
+.metamask-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.connect-btn {
+  background-color: #f6851b;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.connect-btn:hover {
+  background-color: #e2761b;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.disconnect-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.disconnect-btn:hover {
+  background-color: #cc0000;
+}

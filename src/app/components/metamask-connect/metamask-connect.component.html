@@ -1,0 +1,10 @@
+<div class="metamask-container">
+  <button *ngIf="!account" (click)="connectMetaMask()" class="connect-btn">
+    Kết nối MetaMask
+  </button>
+
+  <div *ngIf="account" class="wallet-info">
+    <span>Đã kết nối: {{ account | slice:0:6 }}...{{ account | slice:-4 }}</span>
+    <button (click)="disconnectMetaMask()" class="disconnect-btn">Ngắt kết nối</button>
+  </div>
+</div>

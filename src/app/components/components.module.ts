@@ -16,6 +16,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule } from '@angular/forms';
 import { VideoComponent } from './video/video.component';
 import { PagingCustomComponent } from './paging-custom/paging-custom.component';
+import { MetamaskConnectComponent } from './metamask-connect/metamask-connect.component';
 @NgModule({
   declarations: [
     TableTemplateComponent,
@@ -29,7 +30,8 @@ import { PagingCustomComponent } from './paging-custom/paging-custom.component';
     MessageButtonComponent,
     CkContentComponent,
     VideoComponent,
-    PagingCustomComponent
+    PagingCustomComponent,
+    MetamaskConnectComponent
 
 
   ],
@@ -52,7 +54,8 @@ import { PagingCustomComponent } from './paging-custom/paging-custom.component';
     MessageButtonComponent,
     CkContentComponent,
     VideoComponent,
-    PagingCustomComponent
+    PagingCustomComponent,
+    MetamaskConnectComponent
   ],
 })
 export class ComponentsModule { }

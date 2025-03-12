@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs/internal/Observable';
@@ -61,9 +62,11 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   countRewiew = 0;
   isShowKey =  false;
   apiUrl = environment.apiUrl;
+
   constructor(private productStore : Store<ProductState> ,
     private overlayLoadingStore: Store<OverlayLoadingState>,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private route: ActivatedRoute
   ) {
 
     this.items$ = this.productStore.select(getProducts);
@@ -71,8 +74,20 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   }
 
   ngOnInit( ): void {
-    this.loadProduct();
+
     this.productStore.dispatch(getCategoryAction());
+
+    this.route.queryParams.subscribe(params => {
+      if(ValidationUtil.isNotNullAndNotEmpty(params['id'])){
+        this.activeCate = params['id'];
+        this.search(this.activeCate);
+        debugger;
+      }else{
+        this.loadProduct();
+      }
+
+    });
+
     this.items$.subscribe(res => {
       if (ValidationUtil.isNotNullAndNotEmpty(res)){
         this.items = res.products;

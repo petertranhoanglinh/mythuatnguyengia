@@ -62,7 +62,7 @@
   <h3 class="section-title">Dịch Vụ Vẽ Tranh Tường tại Mỹ Thuật Nguyễn Gia</h3>
   <div class="row">
       <div class="col-md-3 mt-2" *ngFor="let item of items">
-          <div class="product-card">
+          <div class="product-card" style="cursor: pointer;">
               <img src="{{item.img}}" alt="Tranh Hoa Sen Trắng">
               <p class="product-name">{{item.name}}</p>
               <p class="product-price">{{item.price | setComma : ''}} đ</p>
@@ -81,7 +81,7 @@
   <h3 class="text-start fw-bold">Bộ Sưu Tập</h3>
   <div class="row row-cols-2 row-cols-md-5 g-4">
     <div class="col" *ngFor="let item of cates">
-      <div class="card border-0 shadow-sm category-card" [routerLink]="['/category', item.id]">
+      <div class="card border-0 shadow-sm category-card" style="cursor: pointer;"[routerLink]="['/shopping/product-list']" [queryParams]="{ id: item.id }">
         <img [src]="item.imageUrl" class="card-img-top" alt="{{ item.categoryName }}">
         <div class="card-body text-center">
           <h6 class="fw-bold">{{ item.categoryName }} <span>&rarr;</span></h6>
