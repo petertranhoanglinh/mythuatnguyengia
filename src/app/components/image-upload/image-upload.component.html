@@ -1,7 +1,7 @@
 <div class="form-group">
-  <input type="file" class="form-control-file"  #fileInput (change)="onFileChange($event)" />
+  <input type="file" class="form-control-file" #fileInput (change)="onFileChange($event)" />
 </div>
-<div>
-  <img  *ngIf="isShowImg"[src]="imageUrl" class="img-fluid rounded mx-auto d-block" style="max-width: 300px; height: auto;">
-  <button *ngIf="imageUrl" class="btn btn-outline-secondary mt-3" style="border: 1px solid #ced4da; background-color: white; padding: .375rem .75rem;" (click)="clearImage()">Delete</button>
+<div class="image-container">
+  <img *ngIf="isShowImg" [src]="imageUrl == '' ? '../../../assets/img/nofile.img' : imageUrl" class="img-preview">
+  <button *ngIf="imageUrl" class="btn btn-outline-secondary mt-3" (click)="clearImage()">Delete</button>
 </div>

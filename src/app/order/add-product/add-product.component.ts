@@ -62,10 +62,14 @@ export class AddProductComponent implements OnInit {
       { header: "Rate Sale", field: "rateShow" },
       { header: "Price Sale", field: "priceSaleShow" },
       { header: "Stock", field: "stock" },
-
     ]
 
   }
+
+  contentList: { title: string; content: string }[] = [];
+newContent = { title: '', content: '' };
+
+
 
   isPopupOpen = false;
 
@@ -381,6 +385,17 @@ export class AddProductComponent implements OnInit {
 
   handelContent(content : string){
     this.product.description = content;
+  }
+
+  addContent() {
+    if (this.newContent.title.trim() && this.newContent.content.trim()) {
+      this.contentList.push({ ...this.newContent });
+      this.newContent = { title: '', content: '' }; // Reset input sau khi thêm
+    }
+  }
+  
+  removeContent(index: number) {
+    this.contentList.splice(index, 1);
   }
 
 

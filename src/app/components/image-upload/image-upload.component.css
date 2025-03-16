@@ -1,0 +1,15 @@
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .img-preview {
+    width: 300px; /* Đảm bảo tất cả ảnh có cùng kích thước */
+    height: 300px;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    border: 2px solid #ced4da; /* Thêm khung viền */
+    border-radius: 10px; /* Bo góc nhẹ */
+  }
+  

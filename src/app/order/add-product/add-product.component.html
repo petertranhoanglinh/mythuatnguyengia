@@ -1,51 +1,80 @@
 <div class="container mt-5">
-  <div class="card p-3 mb-4 shadow-lg">
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="Tên dự án">
-      <div class="input-group-append">
-        <button type="button" class="btn btn-secondary" (click)="openPopup()">Tìm dịch vụ</button>
-      </div>
+  <div class="card p-4 shadow-lg border-0">
+    <h4 class="mb-3 text-primary fw-bold">Quản lý Dịch Vụ</h4>
+
+    <!-- Tìm dịch vụ -->
+    <div class="input-group mb-4">
+      <input type="text" class="form-control form-control-lg" placeholder="Nhập tên dự án" aria-label="Tên dự án">
+      <button type="button" class="btn btn-secondary btn-lg px-4" (click)="openPopup()">
+        <i class="bi bi-search"></i> Tìm dịch vụ
+      </button>
     </div>
-  </div>
-    <div class="card p-4 shadow-lg mb-5">
-    <div class="form-group">
-      <label for="productName" class="font-weight-bold">Tên dịch vụ</label>
-      <input type="text" class="form-control" id="productName" [(ngModel)]="product.name" name="productName"  required>
+
+    <!-- Tên dịch vụ -->
+    <div class="mb-4">
+      <label for="productName" class="form-label fw-bold">Tên dịch vụ</label>
+      <input type="text" class="form-control form-control-lg" id="productName" [(ngModel)]="product.name" required>
     </div>
-    <div class="mb-3">
-      <label for="parentCategory" class="form-label">Danh Mục</label>
-      <select class="form-select" id="parentCategory" [(ngModel)]="product.category" >
-        <option value="">-- Chọn danh mục --</option>
+
+    <!-- Danh mục -->
+    <div class="mb-4">
+      <label for="parentCategory" class="form-label fw-bold">Danh Mục</label>
+      <select class="form-select form-select-lg" id="parentCategory" [(ngModel)]="product.category">
+        <option value="" disabled selected>-- Chọn danh mục --</option>
         <ng-container *ngFor="let item of cates">
           <option [value]="item.id">{{ item.categoryName }}</option>
         </ng-container>
       </select>
     </div>
-    <div class="form-group">
-      <label for="productPrice" class="font-weight-bold">Giá</label>
-      <input type="number" class="form-control" id="productPrice" [(ngModel)]="product.price" name="productPrice"  required>
+
+    <!-- Giá -->
+    <div class="mb-4">
+      <label for="productPrice" class="form-label fw-bold">Giá</label>
+      <input type="number" class="form-control form-control-lg" id="productPrice" [(ngModel)]="product.price" required>
     </div>
-    <div class="form-group">
-      <label for="productDescription" class="font-weight-bold">Mô tả dịch vụ</label>
-      <ck-content (changeContent)="handelContent($event)"  [content]="product.description"></ck-content>
-    </div>
-    <div class="form-group">
-      <label class="font-weight-bold">Hình ảnh dịch vụ</label>
-      <div class="d-flex flex-wrap justify-content-start">
-        <app-image-upload class="me-2 mb-2 shadow-sm" [imageUrl]="sliderName1" (changeFile)="changeFileName($event,'slider1')"></app-image-upload>
-        <app-image-upload class="me-2 mb-2 shadow-sm" [imageUrl]="sliderName2" (changeFile)="changeFileName($event,'slider2')"></app-image-upload>
-        <app-image-upload class="me-2 mb-2 shadow-sm" [imageUrl]="sliderName3" (changeFile)="changeFileName($event,'slider3')"></app-image-upload>
-        <app-image-upload class="mb-2 shadow-sm" [imageUrl]="sliderName4" (changeFile)="changeFileName($event,'slider4')"></app-image-upload>
-        <app-image-upload class="mb-2 shadow-sm" [imageUrl]="sliderName5" (changeFile)="changeFileName($event,'slider5')"></app-image-upload>
-        <app-image-upload class="mb-2 shadow-sm" [imageUrl]="sliderName6" (changeFile)="changeFileName($event,'slider6')"></app-image-upload>
+
+    <!-- Danh sách nội dung -->
+    <label class="fw-bold">Danh sách nội dung</label>
+    <div *ngFor="let item of contentList; let i = index" class="card p-3 mb-2 border-0 shadow-sm">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h6 class="text-primary fw-semibold">{{ item.title }}</h6>
+          <p class="text-secondary mb-0">{{ item.content }}</p>
+        </div>
+        <button class="btn btn-outline-danger btn-sm px-3" (click)="removeContent(i)">
+          <i class="bi bi-trash"></i> Xóa
+        </button>
       </div>
     </div>
-    <div class="form-group">
-      <label class="font-weight-bold">Hiển thị trên list dịch vụ</label>
-      <app-image-upload class="mb-2 shadow-sm" (changeFile)="changeFileName($event,'img')" [imageUrl]="imgName"></app-image-upload>
+
+    <!-- Thêm nội dung -->
+    <div class="input-group mb-4">
+      <input type="text" class="form-control form-control-lg" [(ngModel)]="newContent.title" placeholder="Tiêu đề">
+      <input type="text" class="form-control form-control-lg" [(ngModel)]="newContent.content" placeholder="Nội dung">
+      <button class="btn btn-success btn-lg px-4" (click)="addContent()">
+        <i class="bi bi-plus-lg"></i> Thêm
+      </button>
     </div>
-    <button type="button" class="btn btn-primary btn-block mt-4 shadow-sm" (click)="onSubmit()">Thêm/Sửa</button>
+
+    <!-- Hình ảnh dịch vụ -->
+    <label class="fw-bold">Hình ảnh dịch vụ</label>
+    <div class="d-flex flex-wrap gap-2 mb-4">
+      <app-image-upload class="shadow-sm" *ngFor="let img of [sliderName1, sliderName2, sliderName3, sliderName4, sliderName5, sliderName6]" 
+        [imageUrl]="img" (changeFile)="changeFileName($event, img)">
+      </app-image-upload>
+    </div>
+
+    <!-- Hiển thị trên list dịch vụ -->
+    <label class="fw-bold mt-3">Hiển thị trên list dịch vụ</label>
+    <app-image-upload class="shadow-sm mb-4" (changeFile)="changeFileName($event, 'img')" [imageUrl]="imgName"></app-image-upload>
+
+    <!-- Nút Thêm/Sửa -->
+    <button type="button" class="btn btn-primary btn-lg w-100 shadow-sm" (click)="onSubmit()">
+      <i class="bi bi-save"></i> Thêm/Sửa
+    </button>
   </div>
+
+  <!-- Popup tìm kiếm dịch vụ -->
   <app-popup [isOpen]="isPopupOpen" (close)="closePopup()" [title]="'Tìm kiếm dịch vụ'">
     <app-table-template [isPaging]="true" [tableConfig]="config" [data]="items" [isChangePageSize]="false"
       (handelChangePage)="handlePageEvent($event)" [len]="len" [total]="total" (clickRow)="clickRow($event)">

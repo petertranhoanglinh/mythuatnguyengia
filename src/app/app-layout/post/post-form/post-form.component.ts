@@ -17,6 +17,10 @@ export class PostFormComponent implements OnInit {
   blog: BlogModel = {} as BlogModel;
   blog$ = new Observable<BlogModel>();
   blogDetail$ = new Observable<BlogModel>();
+  contentList: { title: string; content: string }[] = [];
+  newContent = { title: '', content: '' };
+  img: any = '';
+  imgName: any = '';
   constructor(private blogStore : Store<BlogState> , private toastr: ToastrService   , private route: ActivatedRoute){
     this.blog$ = this.blogStore.select(selectSelectedSaveBlog);
     this.blogDetail$ = this.blogStore.select(selectSelectedBlog);
@@ -47,6 +51,26 @@ export class PostFormComponent implements OnInit {
   ngOnDestroy(): void {
     this.blogStore.dispatch(createBlogSuccess({blog: {} as BlogModel}))
   }
+
+  
+  addContent() {
+    if (this.newContent.title.trim() && this.newContent.content.trim()) {
+      this.contentList.push({ ...this.newContent });
+      this.newContent = { title: '', content: '' }; // Reset input sau khi thêm
+    }
+  }
+  
+  removeContent(index: number) {
+    this.contentList.splice(index, 1);
+  }
+
+  changeFileName(file: File) {
+        this.img = file;
+        this.imgName = file.name;
+    
+  }
+
+
 }
 
 

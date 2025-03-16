@@ -40,10 +40,43 @@
               </select>
             </div>
 
-            <div class="mb-4">
+            <!-- <div class="mb-4">
               <label for="content" class="form-label fw-bold">Nội dung</label>
                <ck-content (changeContent)="handelContent($event)" [content]="blog.content"></ck-content>
+            </div> -->
+               <!-- Danh sách nội dung -->
+            <!-- Danh sách nội dung -->
+            <div class="mb-4">
+              <label class="fw-bold">Danh sách nội dung</label>
+              <div *ngFor="let item of contentList; let i = index" class="card p-3 mb-2 border-0 shadow-sm">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="text-primary fw-semibold">{{ item.title }}</h6>
+                    <p class="text-secondary mb-0">{{ item.content }}</p>
+                  </div>
+                  <button class="btn btn-outline-danger btn-sm px-3" (click)="removeContent(i)">
+                    <i class="bi bi-trash"></i> Xóa
+                  </button>
+                </div>
+              </div>
             </div>
+
+            <!-- Thêm nội dung mới -->
+            <div class="input-group mb-4">
+              <input type="text" class="form-control form-control-lg" [(ngModel)]="newContent.title" placeholder="Tiêu đề">
+              <input type="text" class="form-control form-control-lg" [(ngModel)]="newContent.content" placeholder="Nội dung">
+              <button class="btn btn-success btn-lg px-4" (click)="addContent()">
+                <i class="bi bi-plus-lg"></i> Thêm
+              </button>
+            </div>
+            <div class="mb-4">
+              <label class="fw-bold mt-3">Hiển thị trên list bài viết</label>
+               <app-image-upload class="shadow-sm mb-4" (changeFile)="changeFileName($event)" [imageUrl]="imgName"></app-image-upload>
+
+            </div>
+            
+        
+
             <button type="submit" class="btn btn-primary btn-lg w-100">Lưu Blog</button>
           </form>
         </div>
