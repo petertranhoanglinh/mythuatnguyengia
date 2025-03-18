@@ -15,6 +15,7 @@ export class ImageUploadComponent {
   @Output() changeFile = new EventEmitter<File>();
 
 
+
   @ViewChild('fileInput') fileInput: any;
 
 

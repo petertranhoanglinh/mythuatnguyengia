@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { VideoComponent } from './video/video.component';
 import { PagingCustomComponent } from './paging-custom/paging-custom.component';
 import { MetamaskConnectComponent } from './metamask-connect/metamask-connect.component';
+import { UploadMutiImageComponent } from './upload-muti-image/upload-muti-image.component';
 @NgModule({
   declarations: [
     TableTemplateComponent,
@@ -31,7 +32,8 @@ import { MetamaskConnectComponent } from './metamask-connect/metamask-connect.co
     CkContentComponent,
     VideoComponent,
     PagingCustomComponent,
-    MetamaskConnectComponent
+    MetamaskConnectComponent,
+    UploadMutiImageComponent
 
 
   ],
@@ -55,7 +57,8 @@ import { MetamaskConnectComponent } from './metamask-connect/metamask-connect.co
     CkContentComponent,
     VideoComponent,
     PagingCustomComponent,
-    MetamaskConnectComponent
+    MetamaskConnectComponent,
+    UploadMutiImageComponent
   ],
 })
 export class ComponentsModule { }

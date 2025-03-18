@@ -1,0 +1,67 @@
+<!-- upload-multi-image.component.html -->
+<div class="upload-container"
+     [class.dragging]="isDragging"
+     (dragover)="onDragOver($event)"
+     (dragleave)="onDragLeave($event)"
+     (drop)="onDrop($event)">
+
+  <div class="upload-area">
+    <input type="file"
+           #multiFileInput
+           multiple
+           [accept]="acceptedFileTypes.join(',')"
+           class="file-input"
+           (change)="onFilesChange($event)">
+
+    <div class="upload-content">
+      <i class="upload-icon fas fa-cloud-upload-alt"></i>
+      <p class="upload-text">
+        Kéo thả hình ảnh vào đây hoặc click để chọn file
+      </p>
+      <p class="upload-hint">
+        Hỗ trợ: {{ acceptedFileTypes.join(', ') }} - Tối đa {{ maxFileSize }}MB/file
+      </p>
+    </div>
+  </div>
+
+  <!-- Error messages -->
+  <div class="error-container" *ngIf="errors.length > 0">
+    <div class="error-message" *ngFor="let error of errors">
+      {{ error }}
+    </div>
+  </div>
+
+  <!-- Preview images -->
+  <div class="preview-container" *ngIf="isShowPreview">
+    <!-- New uploaded images -->
+    <div class="image-item" *ngFor="let item of files; let i = index">
+      <div class="image-wrapper">
+        <img [src]="item.preview" class="preview-image" alt="Preview">
+        <div class="image-overlay">
+          <button class="remove-button" (click)="removeImage(i, false)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Existing images -->
+    <div class="image-item" *ngFor="let url of existingImages; let i = index">
+      <div class="image-wrapper">
+        <img [src]="url" class="preview-image" alt="Existing">
+        <div class="image-overlay">
+          <button class="remove-button" (click)="removeImage(i, true)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear all button -->
+  <button class="clear-button"
+          *ngIf="(files.length > 0 || existingImages.length > 0) && isShowPreview"
+          (click)="clearAllImages()">
+    Xóa tất cả
+  </button>
+</div>

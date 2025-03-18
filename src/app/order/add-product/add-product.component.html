@@ -59,14 +59,12 @@
     <!-- Hình ảnh dịch vụ -->
     <label class="fw-bold">Hình ảnh dịch vụ</label>
     <div class="d-flex flex-wrap gap-2 mb-4">
-      <app-image-upload class="shadow-sm" *ngFor="let img of [sliderName1, sliderName2, sliderName3, sliderName4, sliderName5, sliderName6]" 
-        [imageUrl]="img" (changeFile)="changeFileName($event, img)">
-      </app-image-upload>
+      <app-upload-multi-image  [existingImages] = "oldSliderName" (filesChange) = "onFilesChange($event)" ></app-upload-multi-image>
     </div>
 
     <!-- Hiển thị trên list dịch vụ -->
     <label class="fw-bold mt-3">Hiển thị trên list dịch vụ</label>
-    <app-image-upload class="shadow-sm mb-4" (changeFile)="changeFileName($event, 'img')" [imageUrl]="imgName"></app-image-upload>
+    <app-image-upload class="shadow-sm mb-4" (changeFile)="changeFileName($event)" [imageUrl]="imgName"></app-image-upload>
 
     <!-- Nút Thêm/Sửa -->
     <button type="button" class="btn btn-primary btn-lg w-100 shadow-sm" (click)="onSubmit()">

@@ -81,7 +81,6 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
       if(ValidationUtil.isNotNullAndNotEmpty(params['id'])){
         this.activeCate = params['id'];
         this.search(this.activeCate);
-        debugger;
       }else{
         this.loadProduct();
       }
