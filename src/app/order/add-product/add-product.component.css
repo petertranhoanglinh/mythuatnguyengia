@@ -25,14 +25,14 @@
 
 .title-input {
   font-weight: bold;
-  border: 2px solid #28a745;
+  border: 2px solid #e74c3c;
   border-radius: 8px;
   padding: 12px;
 }
 
 .content-textarea {
   height: 150px;
-  border: 2px solid #28a745;
+  border: 2px solid #e74c3c;
   border-radius: 8px;
   padding: 12px;
   resize: none;
@@ -47,5 +47,6 @@
 }
 
 .add-btn:hover {
-  background: #218838;
+  background: #e74c3c;
 }
+ 

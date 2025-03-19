@@ -7,6 +7,7 @@ export interface HeaderState {
   items: any [];
   isHeader: Boolean;
   pageHeading: PageHeading;
+  productname : string;
 }
 
 export const getHeader = createFeatureSelector<HeaderState>(headerFeatureKey);
@@ -19,6 +20,11 @@ export const getIsHeader = createSelector(
 export const getPageHeading = createSelector(
   getHeader,
 (state: HeaderState) => state.pageHeading
+);
+
+export const getProductName = createSelector(
+  getHeader,
+(state: HeaderState) => state.productname
 );
 
 

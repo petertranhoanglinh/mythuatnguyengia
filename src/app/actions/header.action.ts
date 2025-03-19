@@ -19,6 +19,12 @@ export const setPageHeading= createAction(
 );
 
 
+export const setProductName= createAction(
+  "[ngx-loading] set productName",
+  props<{ productname: string }>()
+);
+
+
 
 
 

@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs/internal/Observable';
+import { setProductName } from 'src/app/actions/header.action';
 import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
 import { getCategoryAction, productAction } from 'src/app/actions/product.action';
 import { CommonUtils } from 'src/app/common/util/common-utils';
@@ -12,6 +13,7 @@ import { ValidationUtil } from 'src/app/common/util/validation.util';
 import { CategoryModel } from 'src/app/model/cate.model';
 import { ProductResponseModel } from 'src/app/model/product-response.model';
 import { ProductModel } from 'src/app/model/product.model';
+import { HeaderState } from 'src/app/selectors/header.selector';
 import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
 import { getCategory, getProducts, ProductState } from 'src/app/selectors/product.selector';
 import { environment } from 'src/environments/environment';
@@ -65,6 +67,7 @@ export class ProductCategoryComponent implements OnInit {
 
    constructor(private productStore : Store<ProductState> ,
      private overlayLoadingStore: Store<OverlayLoadingState>,
+     private headerStore: Store<HeaderState>,
      private cdr: ChangeDetectorRef,
      private route: ActivatedRoute,
     private titleService: Title // Thêm Title service
@@ -102,6 +105,7 @@ export class ProductCategoryComponent implements OnInit {
              this.cateId = cate.id;
              this.cateActive = cate;
              this.loadProduct();
+             this.headerStore.dispatch(setProductName({ productname: cate.categoryName }));
              this.titleService.setTitle(cate.categoryName || 'Chi tiết bài viết');
            }
         });
@@ -110,7 +114,6 @@ export class ProductCategoryComponent implements OnInit {
    }
 
    loadProduct():void{
-     // this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
      this.productStore.dispatch(productAction({
        params : {
           page:this.page,
@@ -128,6 +131,7 @@ export class ProductCategoryComponent implements OnInit {
    ngOnDestroy(): void {
     this.cateName = '';
     this.titleService.setTitle( 'Nguyễn Gia - Tranh vẽ tường chuyên nghiệp');
+    this.headerStore.dispatch(setProductName({ productname: '' }));
      const carousel = document.querySelector('owl-carousel-o');
      if (carousel) {
        carousel.dispatchEvent(new CustomEvent('destroy'));

@@ -1,7 +1,7 @@
 import { param } from 'jquery';
 import { PageEvent } from '@angular/material/paginator';
 import { ResultModel } from './../../model/result.model';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs/internal/Observable';
@@ -23,7 +23,7 @@ import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent implements OnInit , OnDestroy {
 
   apiUrl: string = environment.apiUrl;
   selectedFiles: File[] = [];
@@ -92,7 +92,7 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
     this.loadProduct();
     this.result$.subscribe(res => {
-      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+      if (ValidationUtil.isNotNullAndNotEmpty(res) && Object.keys(res).length > 0) {
         if (String(res.code) == "200") {
           this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading : false}))
           this.resetForm();
@@ -134,7 +134,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit() {
-    this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading : true}))
+
 
     if (!ValidationUtil.isNotNullAndNotEmpty(this.product.name)) {
       this.toastr.warning("Product Name not empty")
@@ -149,9 +149,9 @@ export class AddProductComponent implements OnInit {
       return;
     }
 
-    let sliders: any[] = this.selectedFiles;
+    this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading : true}))
 
-    let slidersName = [] as String []
+    let sliders: any[] = this.selectedFiles;
     let params ;
 
     if (ValidationUtil.isNotNullAndNotEmpty(this.product.id)) {

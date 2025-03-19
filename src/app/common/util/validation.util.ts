@@ -3,7 +3,7 @@
 export class ValidationUtil {
 
   static isNotNullAndNotEmpty(value: any): boolean {
-    if (value !== undefined && value !== null && Object.keys(value).length > 0) {
+    if (value !== undefined && value !== null) {
       if (typeof value === "string") {
         return value.trim().length > 0;
       } else if (value instanceof Array) {

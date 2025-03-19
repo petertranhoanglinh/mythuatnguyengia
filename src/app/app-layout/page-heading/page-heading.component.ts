@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ValidationUtil } from 'src/app/common/util/validation.util';
 import { PageHeading } from 'src/app/model/page-heading';
-import { getPageHeading, HeaderState } from 'src/app/selectors/header.selector';
+import { getPageHeading, getProductName, HeaderState } from 'src/app/selectors/header.selector';
 
 @Component({
   selector: 'app-page-heading',
@@ -16,11 +16,13 @@ export class PageHeadingComponent implements OnInit {
   pageHeading$ = new Observable<PageHeading>();
   pageHeading:PageHeading = {} as PageHeading;
   parts : string [] = [];
-
+  productname$ = new Observable<string>();
+  productname = ''
   currentUrl: string = '';
 
   constructor(private headerStore: Store<HeaderState> , private router: Router   ) {
     this.pageHeading$ = this.headerStore.select(getPageHeading)
+    this.productname$ = this.headerStore.select(getProductName)
    }
 
   ngOnInit(): void {
@@ -28,6 +30,14 @@ export class PageHeadingComponent implements OnInit {
       if(ValidationUtil.isNotNullAndNotEmpty(res.menu)){
         this.pageHeading = res;
         this.parts = this.splitString(res.chilren)
+      }
+    })
+
+    this.productname$.subscribe(res => {
+      if(ValidationUtil.isNotNullAndNotEmpty(res) && Object.keys(res).length > 0){
+        this.productname = res;
+      }else{
+        this.productname = '';
       }
     })
 

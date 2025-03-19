@@ -1,6 +1,7 @@
+import { setProductName } from './../../actions/header.action';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ProductResponseModel } from './../../model/product-response.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
@@ -15,13 +16,14 @@ import { ProductService } from 'src/app/service/product.service';
 import { environment } from 'src/environments/environment';
 import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
 import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
+import { HeaderState } from 'src/app/selectors/header.selector';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit , OnDestroy {
   isPopupOpen = true;
   product$ = new Observable<ProductResponseModel>();
   title = 'Tranh cảnh biển nhẹ nhàng';
@@ -46,7 +48,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute , private productStore: Store<ProductState>,  private overlayLoadingStore: Store<OverlayLoadingState>
     ,private cartService : CartService,
     private toastr: ToastrService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer ,
+    private headerStore: Store<HeaderState>
   ) {
     this.product$ = this.productStore.select(getProducts);
   }
@@ -64,6 +67,8 @@ export class ProductDetailComponent implements OnInit {
     this.product$.subscribe(res=>{
       if(ValidationUtil.isNotNullAndNotEmpty(res)){
         this.product = res.products[0];
+        const dispatchResult = this.headerStore.dispatch(setProductName({ productname: this.product.name }));
+        console.log('Dispatch result:', dispatchResult);
       }
     })
 
@@ -71,6 +76,12 @@ export class ProductDetailComponent implements OnInit {
       this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
     }, 1000);
   }
+
+    ngOnDestroy(): void {
+      debugger
+      this.headerStore.dispatch(setProductName({productname : ''}))
+    }
+
 
   closePopup():void{
     this.isPopupOpen = false;

@@ -1,8 +1,8 @@
 import { PageHeading } from './../../model/page-heading';
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { GuardsCheckEnd, Router } from '@angular/router';
+import { GuardsCheckEnd, NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { filter, Observable, of } from 'rxjs';
 import { getTestConnectAction } from 'src/app/actions/coin.action';
 import { setPageHeading } from 'src/app/actions/header.action';
 import { AuthDetail } from 'src/app/common/util/auth-detail';
@@ -68,6 +68,12 @@ export class HeaderComponent implements OnInit {
     this.quantityCart$ = this.authStore.select(getCartNumber)
   }
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.initMenu(event.url);
+      }
+    });
+
     const overlay = this.el.nativeElement.querySelector('.mobile-menu-overlay');
     if (overlay) {
       this.renderer.listen(overlay, 'click', () => {
@@ -198,7 +204,21 @@ export class HeaderComponent implements OnInit {
       }
       return undefined;
     };
+    if(url.includes("chi_tiet_san_pham") || url.includes("danh_muc")){
+
+      const pageHeading : PageHeading = {
+        chilren:this.currentPath,
+        isShow: true ,
+        menu:     {
+          label:'Dịch vụ vẽ tranh',
+          route:'/san_pham/danh_sach_san_pham',
+        },
+      }
+      this.headerStore.dispatch(setPageHeading({pageHeading:pageHeading}))
+      return;
+    }
     const menu = search(menus);
+
     this.onMenuClick(menu as Menu)
 
 
