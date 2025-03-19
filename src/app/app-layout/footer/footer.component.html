@@ -15,7 +15,7 @@
         <h5>Sản Phẩm</h5>
         <ul class="list-unstyled">
           <ng-container *ngFor="let item of cates">
-            <li [routerLink]="['/shopping/danhmuc/'] + toSug(item.categoryName)">{{item.categoryName}}</li>
+            <li><a target="_blank" [href]="['/san_pham/danh_muc/'] + toSug(item.categoryName)">{{item.categoryName}}</a></li>
           </ng-container>
         </ul>
       </div>

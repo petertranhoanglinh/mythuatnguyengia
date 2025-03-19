@@ -14,8 +14,8 @@ import { ProductCategoryComponent } from './product-category/product-category.co
 const routes: Routes = [
   {path:'checkout' , component:CheckoutComponent},
   {path:'wishlist' , component:WishListComponent},
-  {path:'product-list' , component:ProductListComponent},
-  {path:'danhmuc/:cate' , component:ProductCategoryComponent},
+  {path:'danh_sach_san_pham' , component:ProductListComponent},
+  {path:'danh_muc/:cate' , component:ProductCategoryComponent},
   {path:'cart' , component:WishListComponent},
   {path:'addProduct' , component:AddProductComponent},
   {path:'newProduct' , component:AddProductComponent},

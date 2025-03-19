@@ -2,7 +2,7 @@
   <div class="row">
       <div class="col-md-3 d-none d-md-block">
           <ul class="list-group" *ngFor="let item of cates">
-              <li [routerLink]="['/shopping/danhmuc/'] + toSug(item.categoryName)" class="list-group-item">{{item.categoryName}}</li>
+              <li [routerLink]="['/san_pham/danh_muc/'] + toSug(item.categoryName)" class="list-group-item">{{item.categoryName}}</li>
           </ul>
       </div>
       <div class="col-md-9 col-12">
@@ -76,14 +76,11 @@
   <app-paging-custom [length]="total" [pageSize]="len" [pageIndex]="page" (pageChange)="onPageChange($event)">
   </app-paging-custom>
 </div>
-
-
-
 <div class="container mt-5">
   <h3 class="text-start fw-bold">Bộ Sưu Tập</h3>
   <div class="row row-cols-2 row-cols-md-5 g-4">
     <div class="col" *ngFor="let item of cates">
-      <div class="card border-0 shadow-sm category-card" style="cursor: pointer;"[routerLink]="['/shopping/danhmuc/'] + toSug(item.categoryName)">
+      <div class="card border-0 shadow-sm category-card" style="cursor: pointer;"[routerLink]="['/san_pham/danh_muc/'] + toSug(item.categoryName)">
         <img [src]="item.imageUrl" class="card-img-top" alt="{{ item.categoryName }}">
         <div class="card-body text-center">
           <h6 class="fw-bold">{{ item.categoryName }} <span>&rarr;</span></h6>

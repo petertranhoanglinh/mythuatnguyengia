@@ -35,19 +35,19 @@ export class HeaderComponent implements OnInit {
   isMobileMenuOpen = false;
   menus: Menu[] = [
     {
-      label:'Giới thiệu', route : '/about/team'
+      label:'Giới thiệu', route : '/gioi_thieu'
     },
     {
       label:'Dịch vụ vẽ tranh',
-      route:'/shopping/product-list',
+      route:'/san_pham/danh_sach_san_pham',
     },
     {
       label:'Bài viết',
-      route:'/blog/blogs',
+      route:'/bai_viet/danh_sach_bai_viet',
     },
     {
       label:'Báo Giá',
-      route:'/about/bao-gia',
+      route:'/gioi_thieu/bao-gia',
     },
     // {
     //   label:'Liên Hệ',

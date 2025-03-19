@@ -6,11 +6,11 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostAdminComponent } from './post-admin/post-admin.component';
 
 const routes: Routes = [
-  {path:'blog-edit' , component:PostFormComponent} ,
-  {path:'blog-detail/:id' , component:PostDetailComponent},
-  {path:'blogs' , component:PostListComponent},
-  {path:'blog-admin' , component:PostAdminComponent},
-  {path:'blog-edit/:id' , component:PostFormComponent}
+  {path:'sua_bai_viet' , component:PostFormComponent} ,
+  {path:'chi_tiet_bai_viet/:id' , component:PostDetailComponent},
+  {path:'danh_sach_bai_viet' , component:PostListComponent},
+  {path:'quan_ly_bai_viet' , component:PostAdminComponent},
+  {path:'sua_bai_viet/:id' , component:PostFormComponent}
 ];
 
 @NgModule({

@@ -25,11 +25,11 @@ const routes: Routes = [
 
        { path: '', component: HomePageComponent },
        { path: 'auth', loadChildren: authModule },
-       { path: 'shopping' , loadChildren: orderModule },
+       { path: 'san_pham' , loadChildren: orderModule },
        { path: 'product',canActivate : [AuthGuardService]  , loadChildren: productModule },
-       { path: 'blog', loadChildren: postModule },
+       { path: 'bai_viet', loadChildren: postModule },
        { path: 'trade',canActivate : [AuthGuardService]  , loadChildren: trade },
-       { path: 'about'  , loadChildren: about },
+       { path: 'gioi_thieu'  , loadChildren: about },
        { path: 'chat'  ,canActivate : [AuthGuardService] , component: ChatTingComponent },
        { path: 'chat-admin'  ,canActivate : [AuthGuardService] , component: AdminChatComponent },
     ]

@@ -10,7 +10,7 @@ import { ShowPriceComponent } from './show-price/show-price.component';
 const routes: Routes = [
   {path:"about-company" , component:AboutCompanyComponent},
   {path:"about-story" , component:AboutStoryComponent},
-  {path:"team" , component:AboutTeamComponent},
+  {path:"" , component:AboutTeamComponent},
   {path:"testimonials" , component:AboutTestimonialsComponent},
   {path:"contact" , component:ContactComponent} ,
   {path:"bao-gia" , component:ShowPriceComponent}
