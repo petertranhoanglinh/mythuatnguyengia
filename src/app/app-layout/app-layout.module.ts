@@ -27,6 +27,7 @@ import { PageHeadingComponent } from './page-heading/page-heading.component';
 import { messageFeatureKey, messageReducer } from '../reducers/message.reducer';
 import { MessageEffect } from '../effects/message.effect';
 import { PipeModule } from '../pipe/pipe.module';
+import { OrderModule } from '../order/order.module';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -49,6 +50,7 @@ import { PipeModule } from '../pipe/pipe.module';
     ReactiveFormsModule,
     NgChartsModule,
     QRCodeModule,
+    OrderModule,
     PipeModule,
     NgxLoadingModule.forRoot({fullScreenBackdrop: true}),
     StoreModule.forFeature(overlayLoadingFeatureKey, overlayLoadingReducer),

@@ -107,7 +107,7 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
       this._swiperService.createSwiper('reviewSwiperAB', this.swiperConfig);
     }, 500);
     this.loadProduct();
-     this.productStore.dispatch(getCategoryAction());
+    this.productStore.dispatch(getCategoryAction());
     this.items$.subscribe((res) => {
       if (res && res.products.length) {
         this.items = res.products
