@@ -24,7 +24,8 @@
               "src/googleac53cfcf57a4293e.html"
             ],
             "styles": [
-              "src/assets/css/main.css" , 
+              "src/assets/css/main.css" ,
+              "node_modules/ngx-toastr/toastr.css",
               "node_modules/swiper/swiper-bundle.min.css"
             ],
             "scripts": [

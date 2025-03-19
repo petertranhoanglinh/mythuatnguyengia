@@ -16,6 +16,7 @@ import { ProductService } from 'src/app/service/product.service';
 import { environment } from 'src/environments/environment';
 import { CategoryModel } from 'src/app/model/cate.model';
 import { ImageUploadResult } from 'src/app/components/upload-muti-image/upload-muti-image.component';
+import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
 
 @Component({
   selector: 'app-add-product',
@@ -93,8 +94,11 @@ export class AddProductComponent implements OnInit {
     this.result$.subscribe(res => {
       if (ValidationUtil.isNotNullAndNotEmpty(res)) {
         if (String(res.code) == "200") {
+          this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading : false}))
           this.resetForm();
           this.toastr.success(String(res.msg));
+        }else{
+          this.toastr.error(String(res.msg));
         }
       }
     })
@@ -110,9 +114,6 @@ export class AddProductComponent implements OnInit {
       if (ValidationUtil.isNotNullAndNotEmpty(res)) {
         this.items = res.products;
         this.total = res.totalCount;
-
-
-
         this.items = this.items.map(item => ({
           ...item,
           rateShow: String((item.rate * 100).toFixed(2)) + "%"
@@ -133,6 +134,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit() {
+    this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading : true}))
 
     if (!ValidationUtil.isNotNullAndNotEmpty(this.product.name)) {
       this.toastr.warning("Product Name not empty")
@@ -175,8 +177,6 @@ export class AddProductComponent implements OnInit {
         rate: this.product.rate / 100,
         category: this.product.category,
         contentList : this.contentList
-
-
       }
     } else {
       params = {
@@ -216,9 +216,10 @@ export class AddProductComponent implements OnInit {
       category: '',
       contentList : [],
     };
-
-    // Reset the image and slider fields
+    this.newContent = {title : '' , content : ''}
+    this.contentList = [];
     this.img = '';
+    this.oldSliderName = [];
 
   }
 
@@ -260,15 +261,11 @@ export class AddProductComponent implements OnInit {
       category: item.category,
       contentList : item.contenlist,
     };
-
     const contentList = item.contentList as ContentItem[];
-
-
     contentList.forEach((item, index) => {
        this.newContent = {title : item.title , content : item.content};
        this.addContent();
     });
-
     if (ValidationUtil.isNotNullAndNotEmpty(item.img)) {
       this.imgName = item.img
     }

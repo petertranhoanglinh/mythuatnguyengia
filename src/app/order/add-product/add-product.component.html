@@ -76,7 +76,7 @@
 
   <!-- Popup tìm kiếm dịch vụ -->
   <app-popup [isOpen]="isPopupOpen" (close)="closePopup()" [title]="'Tìm kiếm dịch vụ'">
-    <app-table-template [isPaging]="true" [tableConfig]="config" [data]="items" [isChangePageSize]="false"
+    <app-table-template [isPaging]="true" [tableConfig]="config" [data]="items" [isChangePageSize]="false" [showActions]="false"
       (handelChangePage)="handlePageEvent($event)" [len]="len" [total]="total" (clickRow)="clickRow($event)">
     </app-table-template>
   </app-popup>

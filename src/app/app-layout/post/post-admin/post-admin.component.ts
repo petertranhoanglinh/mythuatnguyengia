@@ -33,7 +33,7 @@ export class PostAdminComponent implements OnInit {
          { header: "Tác Giả", field: "author" },
          { header: "Ngày Đăng Bài", field: "createdAt" },
          { header: "Ngày Cập Nhật Bài", field: "updateAt" },
-         { header: "Mô tảtả", field: "description" },
+         { header: "Mô tả", field: "description" },
 
        ]
 
@@ -87,11 +87,11 @@ export class PostAdminComponent implements OnInit {
      }
 
     async  clickRow(item: any) {
-      await this.router.navigate(["blog/blog-detail", item.id]);
+      await this.router.navigate(["bai_viet/chi_tiet_bai_viet", item.id]);
 
     }
     async handleEdit(item:any){
-      await this.router.navigate(["blog/blog-edit", item.id]);
+      await this.router.navigate(["bai_viet/sua_bai_viet", item.id]);
 
     }
 

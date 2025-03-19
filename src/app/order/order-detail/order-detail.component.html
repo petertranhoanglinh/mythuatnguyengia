@@ -1,5 +1,4 @@
-<div class="container mt-5 mb-2" *ngIf="orderDetails">
-  <!-- Search Order Section -->
+<!-- <div class="container mt-5 mb-2" *ngIf="orderDetails">
   <div class="row mb-4">
       <div class="col-md-6">
           <div class="input-group">
@@ -8,8 +7,6 @@
           </div>
       </div>
   </div>
-
-  <!-- Order Details -->
   <h2>Order Details</h2>
   <div class="card mb-3">
       <div class="card-body">
@@ -39,8 +36,6 @@
           <p><strong>Total Amount:</strong> {{ orderDetails?.order?.totalAmount || 'N/A' }}</p>
       </div>
   </div>
-
-  <!-- Delivery Information -->
   <h2>Delivery Information</h2>
   <div class="card mb-3">
       <div class="card-body">
@@ -55,8 +50,6 @@
           <p><strong>Post Code:</strong> {{ orderDetails?.orderDeli?.post || 'N/A' }}</p>
       </div>
   </div>
-
-  <!-- Payment Method -->
   <h2>Payment Method</h2>
   <div class="card mb-3" *ngIf="orderDetails?.paymentMethod">
       <div class="card-body">
@@ -70,4 +63,4 @@
 
 <div *ngIf="!orderDetails">
   <p>Loading order details...</p>
-</div>
+</div> -->

@@ -82,10 +82,10 @@ export class HeaderComponent implements OnInit {
       this.menus.push({
         label: 'Administrator',
         items: [
-          {label : "Quản Lý Dịch Vụ Vẽ Tranh" , route: '/shopping/newProduct' , isShowPageHeading:true },
+          {label : "Quản Lý Dịch Vụ Vẽ Tranh" , route: '/san_pham/newProduct' , isShowPageHeading:true },
           {label : "Đăng Ký Danh Mục Vẽ Tranh" , route: '/product/regcate'  , isShowPageHeading:true},
-          {label: 'Thêm Mới Bài Viết', route: '/blog/blog-edit'  , isShowPageHeading:true},
-          {label: 'Quản Lý Bài Viết', route: '/blog/blog-admin'  , isShowPageHeading:true},
+          {label: 'Thêm Mới Bài Viết', route: '/bai_viet/sua_bai_viet'  , isShowPageHeading:true},
+          {label: 'Quản Lý Bài Viết', route: '/bai_viet/quan_ly_bai_viet'  , isShowPageHeading:true},
         ]
       })
     }

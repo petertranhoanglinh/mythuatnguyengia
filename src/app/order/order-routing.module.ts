@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'cart' , component:WishListComponent},
   {path:'addProduct' , component:AddProductComponent},
   {path:'newProduct' , component:AddProductComponent},
-  {path:'detail/:product' , component:ProductDetailComponent},
+  {path:'chi_tiet_san_pham/:product' , component:ProductDetailComponent},
   {path:'order-detail' , component:OrderDetailComponent},
   {path:'order-tracking' , component:OrderTrackingComponent},
   {path:'order-analysic' , component:OrderAnalysicComponent},
