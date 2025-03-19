@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { getCategoryAction, productAction, productActionSuscess, saveProductAction, saveProductActionSuscess } from 'src/app/actions/product.action';
 import { ValidationUtil } from 'src/app/common/util/validation.util';
 import { ProductResponseModel } from 'src/app/model/product-response.model';
-import { ProductModel } from 'src/app/model/product.model';
+import { ContentItem, ProductModel } from 'src/app/model/product.model';
 import { TableConfig } from 'src/app/model/table-config';
 import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
 import { getCategory, getProducts, getResultSaveProduct, ProductState } from 'src/app/selectors/product.selector';
@@ -37,7 +37,8 @@ export class AddProductComponent implements OnInit {
     new: false,
     best: false,
     rate: 0,
-    category: ''
+    category: '' ,
+    contentList : [],
   };
   img: any = '';
 
@@ -172,7 +173,8 @@ export class AddProductComponent implements OnInit {
         img: img,
         sliders: this.oldSliderName,
         rate: this.product.rate / 100,
-        category: this.product.category
+        category: this.product.category,
+        contentList : this.contentList
 
 
       }
@@ -187,7 +189,8 @@ export class AddProductComponent implements OnInit {
         new: this.product.new,
         best: this.product.best,
         rate: this.product.rate / 100,
-        category: this.product.category
+        category: this.product.category ,
+        contentList : this.contentList
       }
     }
 
@@ -210,7 +213,8 @@ export class AddProductComponent implements OnInit {
       new: false,
       best: false,
       rate: 0,
-      category: ''
+      category: '',
+      contentList : [],
     };
 
     // Reset the image and slider fields
@@ -254,7 +258,16 @@ export class AddProductComponent implements OnInit {
       best: item.best,
       rate: item.rate * 100,
       category: item.category,
+      contentList : item.contenlist,
     };
+
+    const contentList = item.contentList as ContentItem[];
+
+
+    contentList.forEach((item, index) => {
+       this.newContent = {title : item.title , content : item.content};
+       this.addContent();
+    });
 
     if (ValidationUtil.isNotNullAndNotEmpty(item.img)) {
       this.imgName = item.img

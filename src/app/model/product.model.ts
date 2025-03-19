@@ -18,4 +18,10 @@ export interface ProductModel
   rating:number;
   rewiewId:string;
   sliders:string[];
+  contentList : ContentItem [];
+}
+
+export interface ContentItem{
+  title : string;
+  content:string;
 }

@@ -47,14 +47,16 @@
       </div>
     </div>
 
-    <!-- Thêm nội dung -->
-    <div class="input-group mb-4">
-      <input type="text" class="form-control form-control-lg" [(ngModel)]="newContent.title" placeholder="Tiêu đề">
-      <input type="text" class="form-control form-control-lg" [(ngModel)]="newContent.content" placeholder="Nội dung">
-      <button class="btn btn-success btn-lg px-4" (click)="addContent()">
+   <!-- Thêm nội dung -->
+    <div class="content-input-container">
+      <input type="text" class="form-control form-control-lg title-input" [(ngModel)]="newContent.title" placeholder="Tiêu đề">
+      <textarea class="form-control form-control-lg content-textarea" [(ngModel)]="newContent.content" placeholder="Nội dung"></textarea>
+      <button class="btn btn-success btn-lg add-btn" (click)="addContent()">
         <i class="bi bi-plus-lg"></i> Thêm
       </button>
     </div>
+
+
 
     <!-- Hình ảnh dịch vụ -->
     <label class="fw-bold">Hình ảnh dịch vụ</label>

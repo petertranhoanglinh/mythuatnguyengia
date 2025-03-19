@@ -13,3 +13,39 @@
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng cho nội dung bên trong */
 }
 
+.content-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title-input {
+  font-weight: bold;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.content-textarea {
+  height: 150px;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  padding: 12px;
+  resize: none;
+}
+
+.add-btn {
+  align-self: center;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #218838;
+}

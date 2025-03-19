@@ -228,6 +228,7 @@ h3:hover {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -278,4 +279,35 @@ h3:hover {
   font-weight: bold;
   padding: 3px 6px;
   border-radius: 3px;
+}
+.list-group {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+  font-weight: 500;
+  color: #333;
+  border: none;
+  padding: 12px 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: #d9232d;
+  color: white;
+  cursor: pointer;
+}
+
+/* Đảm bảo chiều cao danh mục không quá lớn */
+.col-md-3 {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Tạo khoảng cách giữa danh mục và carousel */
+.row {
+  margin-top: 20px;
 }

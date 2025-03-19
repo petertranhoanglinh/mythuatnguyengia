@@ -54,3 +54,28 @@
 .prodDetailInfo .detailImg .imgWrap {
   padding: 30px 0;
 }
+
+.product-card h5 {
+  font-size: 24px; /* Chữ lớn hơn */
+  font-weight: bold; /* In đậm */
+  color: #333; /* Màu chữ đậm hơn */
+  text-transform: uppercase; /* Viết hoa toàn bộ */
+}
+
+.product-card h6 {
+  font-size: 20px; /* Chữ lớn hơn */
+  font-weight: bold; /* In đậm */
+  color: #444; /* Màu chữ nhẹ hơn h5 */
+  margin-top: 10px;
+}
+
+.product-card p {
+  font-size: 16px; /* Cỡ chữ chuẩn */
+  color: #666; /* Màu chữ dịu hơn */
+  line-height: 1.5; /* Tăng khoảng cách giữa các dòng */
+}
+.product-card img {
+  max-height: 500px; /* Giới hạn chiều cao của ảnh */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+  width: 100%; /* Ảnh tự động co giãn theo chiều rộng */
+}

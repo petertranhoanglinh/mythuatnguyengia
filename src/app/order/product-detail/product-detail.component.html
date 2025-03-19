@@ -1,32 +1,38 @@
 <div class="container mt-4">
-  <div class="row">
-      <div class="col-md-8">
-          <div class="product-card">
-              <img  [src]="product.img" class="img-fluid" alt="Galaxy Play">
-          </div>
-      </div>
-      <div class="col-md-4">
-          <div class="product-card">
-              <h2 class="mb-3">{{product.name}}</h2>
-              <p class="price">49,000đ <span class="discount">{{product.priceSaleShow | setComma : ''}} đ</span> <span class="text-danger">-30%</span></p>
-              <div class="features mb-3">
-                  <ul class="mb-0">
-                      <li>Tranh Tường Chuyên Nghiệp Nguyễn Gia</li>
-                      <li>Không thêm hoặc thay đổi bất cứ thông tin gì của tài khoản</li>
-                      <li>Chỉ sử dụng cố định trên 2 thiết bị</li>
-                  </ul>
-              </div>
-              <button class="btn btn-primary btn-custom mb-2">🛒 ADD TO CART</button>
-              <button class="btn btn-danger btn-custom">🔴 MUA NGAY</button>
-          </div>
-      </div>
-  </div>
+  <div class="row d-flex align-items-stretch">
+    <div class="col-md-8">
+        <div class="product-card h-100 d-flex flex-column">
+            <img [src]="product.img" class="img-fluid flex-grow-1" alt="Galaxy Play">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="product-card h-100 d-flex flex-column">
+            <h2 class="mb-3">{{product.name}}</h2>
+            <p class="price">
+                {{product.price | setComma: '' }}đ/m2
+                <span class="discount">{{product.priceSaleShow | setComma : ''}} đ</span>
+                <span class="text-danger">-30%</span>
+            </p>
+            <div class="features mb-3 flex-grow-1">
+                <ul class="mb-0">
+                    <li>Tranh Tường Chuyên Nghiệp Nguyễn Gia</li>
+                    <li>Không thêm hoặc thay đổi bất cứ thông tin gì của tài khoản</li>
+                    <li>Chỉ sử dụng cố định trên 2 thiết bị</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 
   <div class="mt-4 product-card">
-      <h5>ĐẶC ĐIỂM NỔI BẬT</h5>
-      <p>Galaxy Play là nền tảng xem phim trực tuyến thu hút lượng lớn người sử dụng tại Việt Nam.</p>
-      <button class="btn btn-secondary btn-sm">Xem đầy đủ</button>
+    <h5>ĐẶC ĐIỂM NỔI BẬT</h5>
+    <div *ngFor="let content of product.contentList">
+      <h6>{{ content.title }}</h6>
+      <p>{{ content.content }}</p>
+    </div>
   </div>
+
    <!-- Danh sách hình ảnh sản phẩm -->
    <div class="imgWrap">
     <img *ngFor="let img of product.sliders" [src]="img"  alt="Product Detail">
