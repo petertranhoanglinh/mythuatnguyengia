@@ -7,19 +7,16 @@
         <p><strong>Hotline:</strong> <a href="tel:0983859614" class="contact-link">0983.859.614</a></p>
         <p><strong>Email:</strong> <a href="mailto:nguyenvantuan70293@gmail.com" class="contact-link">nguyenvantuan70293@gmail.com</a></p>
         <p><strong>Website:</strong> mythuatnguyengia.com</p>
-        <p><strong>CN1:</strong> 32 đường B4 Khu Đô Thị Sala, An Lợi Đông, Thủ Đức, HCM</p>
+        <!-- <p><strong>CN1:</strong> 32 đường B4 Khu Đô Thị Sala, An Lợi Đông, Thủ Đức, HCM</p> -->
       </div>
 
       <!-- Sản phẩm -->
       <div class="col-md-3">
         <h5>Sản Phẩm</h5>
         <ul class="list-unstyled">
-          <li>Tranh Treo Tường</li>
-          <li>Tranh Sơn Dầu</li>
-          <li>Tranh Dán Tường</li>
-          <li>Giấy Dán Tường</li>
-          <li>Khung Hình Dán Tường Siêu Nhẹ</li>
-          <li>Thảm Sofa</li>
+          <ng-container *ngFor="let item of cates">
+            <li [routerLink]="['/shopping/danhmuc/'] + toSug(item.categoryName)">{{item.categoryName}}</li>
+          </ng-container>
         </ul>
       </div>
     </div>

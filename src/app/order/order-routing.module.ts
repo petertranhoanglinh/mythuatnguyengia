@@ -9,11 +9,13 @@ import { OrderTrackingComponent } from './order-tracking/order-tracking.componen
 import { OrderAnalysicComponent } from './order-analysic/order-analysic.component';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductCategoryComponent } from './product-category/product-category.component';
 
 const routes: Routes = [
   {path:'checkout' , component:CheckoutComponent},
   {path:'wishlist' , component:WishListComponent},
   {path:'product-list' , component:ProductListComponent},
+  {path:'danhmuc/:cate' , component:ProductCategoryComponent},
   {path:'cart' , component:WishListComponent},
   {path:'addProduct' , component:AddProductComponent},
   {path:'newProduct' , component:AddProductComponent},

@@ -76,16 +76,7 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
   ngOnInit( ): void {
 
     this.productStore.dispatch(getCategoryAction());
-
-    this.route.queryParams.subscribe(params => {
-      if(ValidationUtil.isNotNullAndNotEmpty(params['id'])){
-        this.activeCate = params['id'];
-        this.search(this.activeCate);
-      }else{
-        this.loadProduct();
-      }
-
-    });
+    this.loadProduct();
 
     this.items$.subscribe(res => {
       if (ValidationUtil.isNotNullAndNotEmpty(res)){

@@ -10,14 +10,14 @@
             <h2 class="mb-3">{{product.name}}</h2>
             <p class="price">
                 {{product.price | setComma: '' }}đ/m2
-                <span class="discount">{{product.priceSaleShow | setComma : ''}} đ</span>
-                <span class="text-danger">-30%</span>
             </p>
             <div class="features mb-3 flex-grow-1">
                 <ul class="mb-0">
                     <li>Tranh Tường Chuyên Nghiệp Nguyễn Gia</li>
-                    <li>Không thêm hoặc thay đổi bất cứ thông tin gì của tài khoản</li>
-                    <li>Chỉ sử dụng cố định trên 2 thiết bị</li>
+                    <li>Thi công tranh tường theo yêu cầu, đa dạng phong cách</li>
+                    <li>Chất liệu sơn cao cấp, bền màu theo thời gian</li>
+                    <li>Đội ngũ họa sĩ giàu kinh nghiệm, tận tâm với nghề</li>
+                    <li>Hỗ trợ tư vấn miễn phí, thiết kế theo phong thủy</li>
                 </ul>
             </div>
         </div>
@@ -29,7 +29,7 @@
     <h5>ĐẶC ĐIỂM NỔI BẬT</h5>
     <div *ngFor="let content of product.contentList">
       <h6>{{ content.title }}</h6>
-      <p>{{ content.content }}</p>
+      <p [innerHTML]="content.content"></p>
     </div>
   </div>
 

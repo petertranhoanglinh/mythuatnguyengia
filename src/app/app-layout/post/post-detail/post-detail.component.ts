@@ -46,6 +46,7 @@ export class PostDetailComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
+    this.titleService.setTitle( 'Nguyễn Gia - Tranh vẽ tường chuyên nghiệp');
     this.blogStore.dispatch(loadBlogByIdSuccess({blog: {} as BlogModel}))
   }
 

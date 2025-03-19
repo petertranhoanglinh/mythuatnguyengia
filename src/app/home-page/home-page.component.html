@@ -1,10 +1,8 @@
-
-
 <div class="container mt-4">
   <div class="row">
       <div class="col-md-3 d-none d-md-block">
           <ul class="list-group" *ngFor="let item of cates">
-              <li class="list-group-item">{{item.categoryName}}</li>
+              <li [routerLink]="['/shopping/danhmuc/'] + toSug(item.categoryName)" class="list-group-item">{{item.categoryName}}</li>
           </ul>
       </div>
       <div class="col-md-9 col-12">
@@ -68,10 +66,9 @@
         <div class="product-info">
           <p class="product-name">{{ item.name }}</p>
           <div class="product-price">
-            <span class="new-price">{{ item.price | setComma : '' }}đ</span>
+            <span class="new-price">{{ item.price | setComma : '' }}đ/m2</span>
             <span class="old-price" *ngIf="item.price">{{ item.price | setComma : '' }}đ</span>
           </div>
-          <span class="discount-badge" *ngIf="item.rate">-{{ item.rate }}%</span>
         </div>
       </div>
     </div>
@@ -86,7 +83,7 @@
   <h3 class="text-start fw-bold">Bộ Sưu Tập</h3>
   <div class="row row-cols-2 row-cols-md-5 g-4">
     <div class="col" *ngFor="let item of cates">
-      <div class="card border-0 shadow-sm category-card" style="cursor: pointer;"[routerLink]="['/shopping/product-list']" [queryParams]="{ id: item.id }">
+      <div class="card border-0 shadow-sm category-card" style="cursor: pointer;"[routerLink]="['/shopping/danhmuc/'] + toSug(item.categoryName)">
         <img [src]="item.imageUrl" class="card-img-top" alt="{{ item.categoryName }}">
         <div class="card-body text-center">
           <h6 class="fw-bold">{{ item.categoryName }} <span>&rarr;</span></h6>

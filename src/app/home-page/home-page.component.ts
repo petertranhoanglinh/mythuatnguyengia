@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import { CategoryModel } from '../model/cate.model';
 import { ValidationUtil } from '../common/util/validation.util';
+import { CommonUtils } from '../common/util/common-utils';
 
 declare var initSlider: any;  // Khai báo jQuery
 
@@ -126,6 +127,10 @@ export class HomePageComponent implements OnInit ,  AfterViewInit {
     this.setupObserver();
 
     this._swiperService.createSwiper('reviewSwiperAB', this.swiperConfig);
+  }
+
+  toSug (categoryName : string) :string{
+    return CommonUtils.toSlug(categoryName);
   }
 
   loadProduct(): void {

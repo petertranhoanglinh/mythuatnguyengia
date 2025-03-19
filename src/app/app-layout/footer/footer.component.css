@@ -69,3 +69,6 @@ ul.list-unstyled li {
 .admin-button i {
   margin-right: 5px; /* Khoảng cách giữa biểu tượng và chữ */
 }
+ li {
+  cursor: pointer;
+ }

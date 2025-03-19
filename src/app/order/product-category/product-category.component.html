@@ -1,0 +1,46 @@
+<div class="container my-5">
+  <section class="section products">
+      <div class="section-content">
+        <div class="category-header text-center text-md-left d-flex flex-column flex-md-row align-items-center justify-content-center">
+
+          <img *ngIf="cateId !== '' && cateActive?.imageUrl"
+              [src]="cateActive.imageUrl"
+              alt="{{cateActive.categoryName}}"
+              class="category-image mb-3 mb-md-0">
+          <div class="text-content text-center text-md-left">
+              <h2 class="title">{{cateId == '' ? '' : cateActive.categoryName}}</h2>
+              <p class="lead mb-3" *ngIf="cateId !== '' && cateActive?.description">
+                  {{ cateActive.description }}
+              </p>
+          </div>
+        </div>
+          <!-- Products Grid -->
+          <div class="products-grid">
+            <ng-container *ngFor="let item of items">
+                <div class="product-card">
+                    <div class="product-image">
+                        <a [routerLink]="['/shopping/detail', item.id]">
+                            <img [src]="item.img" [alt]="item.name">
+                            <div class="product-overlay">
+                                <span class="view-details">Xem chi tiết</span>
+                            </div>
+                        </a>
+                        <span class="product-label">{{ item.name }}</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">{{ item.name }}</h3>
+                        <p class="product-price">{{ item.price | setComma : '' }} đ/m2</p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+          <!-- Pagination -->
+          <app-paging-custom
+              [length]="total"
+              [pageSize]="len"
+              [pageIndex]="page"
+              (pageChange)="onPageChange($event)">
+          </app-paging-custom>
+      </div>
+  </section>
+</div>
